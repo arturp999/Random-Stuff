@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e83a90083f24139aa3c3d7d5eac352b" Name="Diagram1">
+        <EntityTypeShape EntityType="PCERuntimeModel.AccountOwnership" Width="1.5" PointX="16.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Anomaly" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.AnomalyTheme" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.AnomalyType" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.BankCard" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.BizChannel" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.BizProcessType" Width="1.5" PointX="6.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.CardRequestMotive" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.CitizenCard" Width="1.5" PointX="13.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Citizenship" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ComplaintMotive" Width="1.5" PointX="18.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ComplaintOrigin" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ComplaintSubMotive" Width="1.5" PointX="21" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ContactChannel" Width="1.5" PointX="15.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ContactType" Width="1.5" PointX="20.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ContractBreach" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ContractBreachMotive" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ContractPhysicalStatu" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ContractType" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.CountryOfBirth" Width="1.5" PointX="11.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.CountryOfBirthTest" Width="1.5" PointX="21.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Customer" Width="1.5" PointX="14" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.CustomerContract" Width="1.5" PointX="21.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.CustomerProfile" Width="1.5" PointX="21.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcess" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessAnomaly" Width="1.5" PointX="21.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessDoc" Width="1.5" PointX="6" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessDocHistory" Width="1.5" PointX="8.25" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessDocStatu" Width="1.5" PointX="3.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessHolder" Width="1.5" PointX="3" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessOperation" Width="1.5" PointX="3" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessPhysicalContract" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessSignature" Width="1.5" PointX="11.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessSignatureStatu" Width="1.5" PointX="9" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessWorkQueue" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DAProcessWorkQueueHistory" Width="1.5" PointX="9" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DeclarationRequest" Width="1.5" PointX="3" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DeclarationType" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DeliveryArea" Width="1.5" PointX="20.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DigitalRequest" Width="1.5" PointX="9" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DigitalRequestStatu" Width="1.5" PointX="6.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DigitalRequestWorkQueue" Width="1.5" PointX="11.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DocArchiveStatu" Width="1.5" PointX="3.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.DocIdentType" Width="1.5" PointX="22.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.dtproperty" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.EAIClientLog" Width="1.5" PointX="23.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.EmulatorData" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.EmulatorRequestField" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.EmulatorResponseField" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.EnterpriseUnitGroupUser" Width="1.5" PointX="23.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.EnterpriseUnitUser" Width="1.5" PointX="23.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.FilterType" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.HolderDetachmentMotive" Width="1.5" PointX="15.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.HolderRelationshipType" Width="1.5" PointX="23.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.HouseType" Width="1.5" PointX="11.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.IncomeLevel" Width="1.5" PointX="11.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Insurance" Width="1.5" PointX="16.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.InsuranceProduct" Width="1.5" PointX="6.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.InsuranceVoid" Width="1.5" PointX="9" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.InsuranceVoidAction" Width="1.5" PointX="17.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.InsuranceVoidMotive" Width="1.5" PointX="24.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.IssueEntity" Width="1.5" PointX="11.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ManualProcessType" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ManualProcessVolumeReg" Width="1.5" PointX="13.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ManualProcessVolumeRegHistory" Width="1.5" PointX="16" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.MapTxnCode" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.MaritalStatu" Width="1.5" PointX="11.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Nationality" Width="1.5" PointX="11.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.OCRConfig" Width="1.5" PointX="25.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PaymentMode" Width="1.5" PointX="25.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PhoneOwnership" Width="1.5" PointX="11.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PoliticalRelationshipGrade" Width="1.5" PointX="11.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PoliticalRole" Width="1.5" PointX="11.75" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PoliticalRoleLocation" Width="1.5" PointX="25.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ProcessTemplate" Width="1.5" PointX="25.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ProductAnnexTemplate" Width="1.5" PointX="25.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Profession" Width="1.5" PointX="11.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ProofDoc" Width="1.5" PointX="3.75" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ProofType" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ProofTypeBizProcessType" Width="1.5" PointX="9" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ProofTypeDoc" Width="1.5" PointX="9" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.Proposal" Width="1.5" PointX="19" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PurchaseDismissMode" Width="1.5" PointX="19.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.PurchaseMode" Width="1.5" PointX="21.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.RegexFilter" Width="1.5" PointX="23.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.RelationGrade" Width="1.5" PointX="25.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.SelfCareUser" Width="1.5" PointX="15.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.SeqNbr" Width="1.5" PointX="26.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ShippingFormat" Width="1.5" PointX="26.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.ShippingType" Width="1.5" PointX="27.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.SignatureType" Width="1.5" PointX="9" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.SimulationParam" Width="1.5" PointX="19" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.SimulationType" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.sysdiagram" Width="1.5" PointX="27.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.TransitionType" Width="1.5" PointX="6.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.TxnSchedulingCtrl" Width="1.5" PointX="27.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.TxnSeqNbr" Width="1.5" PointX="27.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.UnitGroupDocument" Width="1.5" PointX="27.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.UnitGroupInsurance" Width="1.5" PointX="19" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.UserFilter" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.UserStatu" Width="1.5" PointX="27.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.WorkContractType" Width="1.5" PointX="27.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.WorkQueue" Width="1.5" PointX="6.75" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.WorkQueueUser" Width="1.5" PointX="27.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.RegexFilterGenericRule" Width="1.5" PointX="17.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.SelfCareStatu" Width="1.5" PointX="28.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.TxnBranchCtrl" Width="1.5" PointX="19.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.TxnOperation" Width="1.5" PointX="28.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PCERuntimeModel.TxnPagingSeqNbr" Width="1.5" PointX="21.75" PointY="28.75" IsExpanded="true" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Proposal_AccountOwnership" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Anomaly_AnomalyTheme" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Anomaly_AnomalyType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DigitalRequest_BizProcessType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_ProofTypeBizProcessType_BizProcessType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_ComplaintSubMotive_ComplaintMotive" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_ContractBreach_ContractBreach" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessPhysicalContract_ContractPhysicalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_ContractType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_CountryOfBirth" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_HouseType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_IncomeLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_IssueEntity" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_Nationality" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_Nationality1" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_PhoneOwnership" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_PoliticalRelationshipGrade" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_PoliticalRole" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_Customer_Profession" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcess_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAPRocessCustomer_DAPRocessCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessDoc_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessOperation_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessPhysicalContract_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessSignature_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessWorkQueue_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessWorkQueueHistory_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DeclarationRequest_DAProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_InsuranceVoid_DAProcess1" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessDoc_DAProcessDocStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessDoc_DocArchiveStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessDoc_ProofDoc" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessDocHistory_DAProcessDoc" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessSignature_DAProcessDoc" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessSignature_DAProcessSignatureStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessSignature_SignatureType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessWorkQueueHistory_TransitionType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DAProcessWorkQueueHistory_WorkQueue" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DigitalRequest_DigitalRequestStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_DigitalRequestWorkQueue_DigitalRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_EmulatorRequestField_EmulatorData" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_EmulatorResponseField_EmulatorData" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_UserFilter_FilterType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_UnitGroupInsurance_Insurance" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_InsuranceVoid_InsuranceProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_ManualProcessVolumeRegHistory_ManualProcessVolumeReg" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_ProofTypeBizProcessType_ProofType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_ProofTypeDoc_ProofType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.FK_SimulationParam_SimulationType" ManuallyRouted="false" />
+        <AssociationConnector Association="PCERuntimeModel.DAProcessDigitalRequest" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

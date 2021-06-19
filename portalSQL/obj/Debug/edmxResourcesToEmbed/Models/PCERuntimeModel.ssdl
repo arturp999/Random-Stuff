@@ -1,0 +1,2166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PCERuntimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountOwnership">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="DUMMY_2" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Anomaly">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="AnomalyTypeCode" Type="varchar" MaxLength="3" />
+    <Property Name="ProofTypeCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="HolderNbr" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="AnomalyThemeCode" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="AnomalyTheme">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AnomalyType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BankCard">
+    <Key>
+      <PropertyRef Name="HolderTaxIdNum" />
+    </Key>
+    <Property Name="HolderTaxIdNum" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="IBAN" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="BIC_SWIFT" Type="varchar" MaxLength="20" />
+    <Property Name="HolderName" Type="varchar" MaxLength="255" />
+    <Property Name="ExpirationDate" Type="datetime" />
+    <Property Name="IssuerIdentifyer" Type="varchar" MaxLength="4" />
+    <Property Name="IssuerName" Type="varchar" MaxLength="255" />
+    <Property Name="CountryCode" Type="varchar" MaxLength="50" />
+    <Property Name="CurrencyCode" Type="varchar" MaxLength="10" />
+    <Property Name="BBAN" Type="varchar" MaxLength="50" />
+    <Property Name="ChangeDate" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="BizChannel">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="BizProcessType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="IndCustomerMgmtProcess" Type="bit" />
+    <Property Name="RegexFilterReference" Type="varchar" MaxLength="3" />
+    <Property Name="IndIndividualSignature" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PCERuntime.dbo.CardReaderLog' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CardReaderLog">
+          <Property Name="User" Type="varchar" MaxLength="50" />
+          <Property Name="Source" Type="varchar" MaxLength="50" />
+          <Property Name="EventDate" Type="char" MaxLength="8" />
+          <Property Name="EventTime" Type="char" MaxLength="6" />
+          <Property Name="EventType" Type="varchar" MaxLength="10" />
+          <Property Name="Data" Type="text" />
+        </EntityType>-->
+  <EntityType Name="CardRequestMotive">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CitizenCard">
+    <Key>
+      <PropertyRef Name="TaxIdNum" />
+    </Key>
+    <Property Name="TaxIdNum" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="150" />
+    <Property Name="LastName" Type="varchar" MaxLength="150" />
+    <Property Name="IdNumber" Type="varchar" MaxLength="9" />
+    <Property Name="DocNum" Type="varchar" MaxLength="12" />
+    <Property Name="SocialSecNum" Type="varchar" MaxLength="11" />
+    <Property Name="SnsNum" Type="varchar" MaxLength="9" />
+    <Property Name="CardCheckDigit" Type="varchar" MaxLength="4" />
+    <Property Name="DocCheckDigit" Type="varchar" MaxLength="4" />
+    <Property Name="FatherFirstName" Type="varchar" MaxLength="150" />
+    <Property Name="FatherLastName" Type="varchar" MaxLength="150" />
+    <Property Name="MotherFirstName" Type="varchar" MaxLength="150" />
+    <Property Name="MotherLastName" Type="varchar" MaxLength="150" />
+    <Property Name="Nationality" Type="varchar" MaxLength="150" />
+    <Property Name="CountryOfBirth" Type="varchar" MaxLength="150" />
+    <Property Name="Height" Type="varchar" MaxLength="150" />
+    <Property Name="Gender" Type="varchar" MaxLength="150" />
+    <Property Name="BirthDate" Type="datetime2" Precision="0" />
+    <Property Name="Issuer" Type="varchar" MaxLength="150" />
+    <Property Name="IssuerDistrict" Type="varchar" MaxLength="150" />
+    <Property Name="EmissionDate" Type="datetime2" Precision="0" />
+    <Property Name="ExpireDate" Type="datetime2" Precision="0" />
+    <Property Name="CardVersion" Type="varchar" MaxLength="12" />
+    <Property Name="DocType" Type="varchar" MaxLength="150" />
+    <Property Name="TaxTypeId" Type="varchar" MaxLength="15" />
+    <Property Name="District" Type="varchar" MaxLength="150" />
+    <Property Name="DistrictDesc" Type="varchar" MaxLength="150" />
+    <Property Name="County" Type="varchar" MaxLength="150" />
+    <Property Name="CountyDesc" Type="varchar" MaxLength="150" />
+    <Property Name="Town" Type="varchar" MaxLength="150" />
+    <Property Name="TownDesc" Type="varchar" MaxLength="150" />
+    <Property Name="Locality" Type="varchar" MaxLength="150" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="150" />
+    <Property Name="SubPostalCode" Type="varchar" MaxLength="150" />
+    <Property Name="PostalLocality" Type="varchar" MaxLength="150" />
+    <Property Name="AddressType" Type="varchar" MaxLength="150" />
+    <Property Name="Address" Type="varchar" MaxLength="150" />
+    <Property Name="AddressNum" Type="varchar" MaxLength="150" />
+    <Property Name="Floor" Type="varchar" MaxLength="150" />
+    <Property Name="Door" Type="varchar" MaxLength="150" />
+    <Property Name="Country" Type="varchar" MaxLength="150" />
+    <Property Name="Side" Type="varchar" MaxLength="150" />
+    <Property Name="Street" Type="varchar" MaxLength="150" />
+    <Property Name="StreetDesc" Type="varchar" MaxLength="150" />
+    <Property Name="StreetDesignation" Type="varchar" MaxLength="150" />
+    <Property Name="Building" Type="varchar" MaxLength="150" />
+    <Property Name="BuildingDesc" Type="varchar" MaxLength="150" />
+    <Property Name="FilePath" Type="varchar" MaxLength="255" />
+    <Property Name="ChangeDate" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="IndPersonalDataRetrievedManually" Type="bit" />
+    <Property Name="IndAddressDataRetrievedManually" Type="bit" />
+  </EntityType>
+  <EntityType Name="Citizenship">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ComplaintMotive">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ComplaintOrigin">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ComplaintSubMotive">
+    <Key>
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="ComplaintMotiveCode" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="ComplaintMotiveCode" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ContactChannel">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ContactType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ContractBreach">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="MotiveCode" Type="varchar" MaxLength="10" />
+    <Property Name="RejectCode" Type="varchar" MaxLength="10" />
+    <Property Name="ActionCode" Type="varchar" MaxLength="10" />
+    <Property Name="Processed" Type="bit" Nullable="false" />
+    <Property Name="ProcessDate" Type="datetime" />
+    <Property Name="Retention" Type="bit" />
+  </EntityType>
+  <EntityType Name="ContractBreachMotive">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ContractPhysicalStatus">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ContractType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="CountryOfBirth">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CountryOfBirthTest">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerNbr" />
+    </Key>
+    <Property Name="CustomerNbr" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NumberOfChildren" Type="int" />
+    <Property Name="NumberOfDependents" Type="int" />
+    <Property Name="HouseTypeCode" Type="varchar" MaxLength="50" />
+    <Property Name="HouseDate" Type="char" MaxLength="8" />
+    <Property Name="AddressPostalCode" Type="varchar" MaxLength="150" />
+    <Property Name="AddressLocality" Type="varchar" MaxLength="150" />
+    <Property Name="Address" Type="varchar" MaxLength="150" />
+    <Property Name="AddressDoor" Type="varchar" MaxLength="150" />
+    <Property Name="AddressFloor" Type="varchar" MaxLength="150" />
+    <Property Name="AddressSide" Type="varchar" MaxLength="150" />
+    <Property Name="HasSameTaxAddress" Type="bit" />
+    <Property Name="TaxAddressPostalCode" Type="varchar" MaxLength="150" />
+    <Property Name="TaxAddressLocality" Type="varchar" MaxLength="150" />
+    <Property Name="TaxAddress" Type="varchar" MaxLength="150" />
+    <Property Name="TaxAddressDoor" Type="varchar" MaxLength="150" />
+    <Property Name="TaxAddressFloor" Type="varchar" MaxLength="150" />
+    <Property Name="TaxAddressSide" Type="varchar" MaxLength="150" />
+    <Property Name="FixedLinePhoneNbr" Type="varchar" MaxLength="50" />
+    <Property Name="MobilePhoneNbr" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="320" />
+    <Property Name="PhoneOwnershipCode" Type="varchar" MaxLength="50" />
+    <Property Name="IncomeLevelCode" Type="varchar" MaxLength="10" />
+    <Property Name="Income" Type="varchar" MaxLength="50" />
+    <Property Name="OtherIncome" Type="varchar" MaxLength="50" />
+    <Property Name="Pension" Type="varchar" MaxLength="50" />
+    <Property Name="HouseRentExpenses" Type="varchar" MaxLength="50" />
+    <Property Name="CarExpenses" Type="varchar" MaxLength="50" />
+    <Property Name="OtherExpenses" Type="varchar" MaxLength="50" />
+    <Property Name="ProfessionCode" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="150" />
+    <Property Name="ContractTypeCode" Type="varchar" MaxLength="50" />
+    <Property Name="ContractDate" Type="char" MaxLength="8" />
+    <Property Name="HasWorkPhone" Type="bit" />
+    <Property Name="WorkPhoneNbr" Type="varchar" MaxLength="50" />
+    <Property Name="HasPoliticalRole" Type="bit" />
+    <Property Name="PoliticalRoleStartDate" Type="char" MaxLength="8" />
+    <Property Name="PoliticalRoleEndDate" Type="char" MaxLength="8" />
+    <Property Name="PoliticalRoleLocation" Type="varchar" MaxLength="150" />
+    <Property Name="PoliticalRoleCode" Type="varchar" MaxLength="150" />
+    <Property Name="HasPoliticalFamilyMember" Type="bit" />
+    <Property Name="PoliticalRelationshipGradeCode" Type="varchar" MaxLength="150" />
+    <Property Name="BankCardDataAutoCollected" Type="bit" />
+    <Property Name="MaritalStatusCode" Type="varchar" MaxLength="150" />
+    <Property Name="IssueEntityCode" Type="varchar" MaxLength="150" />
+    <Property Name="NationalityCode" Type="varchar" MaxLength="50" />
+    <Property Name="CountryOfBirthCode" Type="varchar" MaxLength="150" />
+    <Property Name="NaturalityLocality" Type="varchar" MaxLength="150" />
+    <Property Name="OtherNationalityCode" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+    <Property Name="IdNumber" Type="varchar" MaxLength="50" />
+    <Property Name="IdDocExpiryDate" Type="datetime" />
+    <Property Name="EmbossedName" Type="varchar" MaxLength="100" />
+    <Property Name="FullName" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="CustomerContract">
+    <Key>
+      <PropertyRef Name="CustomerNbr" />
+      <PropertyRef Name="ContractNbr" />
+    </Key>
+    <Property Name="CustomerNbr" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ContractNbr" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerProfile">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAProcess">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="15" />
+    <Property Name="BizProcCode" Type="varchar" MaxLength="10" />
+    <Property Name="BizProcNbr" Type="varchar" MaxLength="20" />
+    <Property Name="CBMCode" Type="varchar" MaxLength="5" />
+    <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Motive" Type="varchar" MaxLength="255" />
+    <Property Name="BranchCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StatusDate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="StatusTime" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="NbrMandatoryDoc" Type="int" />
+    <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhysicalProcNbr" Type="varchar" MaxLength="9" />
+    <Property Name="ValidationTypeCode" Type="varchar" MaxLength="1" />
+    <Property Name="DigitalValidationCode" Type="varchar" MaxLength="20" />
+    <Property Name="PhysicalValidationCode" Type="varchar" MaxLength="20" />
+    <Property Name="Lock" Type="bit" Nullable="false" />
+    <Property Name="UserLock" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="CreationTime" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="CreationUser" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="100" />
+    <Property Name="CustomerNbr" Type="varchar" MaxLength="10" />
+    <Property Name="ContractNbr" Type="varchar" MaxLength="11" />
+    <Property Name="ValidationRuleset" Type="varchar" MaxLength="50" />
+    <Property Name="SaleProcessSeqNbr" Type="varchar" MaxLength="50" />
+    <Property Name="IsSimplified" Type="bit" Nullable="false" />
+    <Property Name="CentralStatus" Type="bit" />
+    <Property Name="OPC" Type="varchar" MaxLength="50" />
+    <Property Name="Transit" Type="bit" />
+    <Property Name="EntryChannel" Type="varchar" MaxLength="50" />
+    <Property Name="AssociatedDAProcessSeqNbr" Type="bigint" />
+    <Property Name="ContactChannel" Type="varchar" MaxLength="100" />
+    <Property Name="IndValidatedContract" Type="bit" />
+    <Property Name="StatusUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DAProcessAnomaly">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BizProcNbr" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AnomalyCode" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="AnomalyDateTime" Type="datetime" />
+    <Property Name="Resolved" Type="bit" />
+    <Property Name="ResolvedDate" Type="datetime" />
+    <Property Name="ResolvedUser" Type="varchar" MaxLength="50" />
+    <Property Name="CreationUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DAProcessDigitalRequest">
+    <Key>
+      <PropertyRef Name="DAProcessSeqNbr" />
+      <PropertyRef Name="DigitalRequestSeqNbr" />
+    </Key>
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DigitalRequestSeqNbr" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAProcessDoc">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DocTypeCode" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Path" Type="varchar" MaxLength="255" />
+    <Property Name="Version" Type="int" />
+    <Property Name="DocStatusCode" Type="varchar" MaxLength="1" />
+    <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="StatusDate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="StatusTime" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="Motive" Type="varchar" MaxLength="255" />
+    <Property Name="IndManualAttach" Type="bit" />
+    <Property Name="AttachmentDate" Type="char" MaxLength="8" />
+    <Property Name="AttachmentTime" Type="char" MaxLength="6" />
+    <Property Name="IsMandatory" Type="bit" />
+    <Property Name="ExternalDocID" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerNbr" Type="varchar" MaxLength="10" />
+    <Property Name="Source" Type="varchar" MaxLength="50" />
+    <Property Name="NbrPages" Type="int" />
+    <Property Name="Barcode" Type="varchar" MaxLength="40" />
+    <Property Name="Order" Type="int" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+    <Property Name="ValidationTypeCode" Type="varchar" MaxLength="1" />
+    <Property Name="DigitalValidationCode" Type="varchar" MaxLength="20" />
+    <Property Name="PhysicalValidationCode" Type="varchar" MaxLength="20" />
+    <Property Name="BatchID" Type="varchar" MaxLength="50" />
+    <Property Name="IsSignedPrimaryHolder" Type="bit" />
+    <Property Name="IsSignedSecondaryHolder" Type="bit" />
+    <Property Name="ProofDocCode" Type="varchar" MaxLength="15" />
+    <Property Name="CanAttach" Type="bit" />
+    <Property Name="SignatureRequired" Type="bit" />
+    <Property Name="MinPages" Type="int" />
+    <Property Name="MaxPages" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DAProcessDocHistory">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessDocSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="AttachmentDate" Type="datetime" Nullable="false" />
+    <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Path" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAProcessDocStatus">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DAProcessHolder">
+    <Key>
+      <PropertyRef Name="DAProcessSeqNbr" />
+      <PropertyRef Name="CustomerNbr" />
+    </Key>
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="CustomerNbr" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="DAProcessOperation">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+      <PropertyRef Name="DAProcessSeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="OpType" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="OpDate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="OpTime" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DAProcessStatus" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Data" Type="text" />
+  </EntityType>
+  <EntityType Name="DAProcessPhysicalContract">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="StatusCode" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DAProcessSignature">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="SignatureKey" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StatusDate" Type="char" MaxLength="8" />
+    <Property Name="StatusTime" Type="char" MaxLength="6" />
+    <Property Name="Status" Type="varchar" MaxLength="3" />
+    <Property Name="DAProcessDocSeqNbr" Type="bigint" />
+    <Property Name="SignatureTypeCode" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="DAProcessSignatureStatus">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DAProcessWorkQueue">
+    <Key>
+      <PropertyRef Name="DAProcessSeqNbr" />
+    </Key>
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="WorkQueueCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AssignDate" Type="char" MaxLength="8" />
+    <Property Name="AssignTime" Type="char" MaxLength="6" />
+    <Property Name="Delay" Type="int" />
+    <Property Name="Priority" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DAProcessWorkQueueHistory">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="WorkQueueCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AssignDate" Type="datetime" Nullable="false" />
+    <Property Name="Delay" Type="int" />
+    <Property Name="Priority" Type="varchar" MaxLength="100" />
+    <Property Name="TreatmentUser" Type="varchar" MaxLength="50" />
+    <Property Name="TreatmentBeginDate" Type="datetime" />
+    <Property Name="TreatmentEndDate" Type="datetime" />
+    <Property Name="TransitionTypeCode" Type="varchar" MaxLength="3" />
+    <Property Name="TransitionUser" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DeclarationRequest">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="TypeCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Processed" Type="bit" Nullable="false" />
+    <Property Name="ProcessDate" Type="datetime" />
+    <Property Name="Address" Type="varchar" MaxLength="150" />
+    <Property Name="Locality" Type="varchar" MaxLength="150" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="8" />
+    <Property Name="CodeM37" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="DeclarationType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DeliveryArea">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DigitalRequest">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="From" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="To" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ContentText" Type="text" />
+    <Property Name="ContentHTML" Type="text" />
+    <Property Name="BizProcessTypeCode" Type="varchar" MaxLength="10" />
+    <Property Name="User" Type="varchar" MaxLength="50" />
+    <Property Name="UserLock" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CustomerNbr" Type="varchar" MaxLength="10" />
+    <Property Name="ContractNbr" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="DigitalRequestStatus">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DigitalRequestWorkQueue">
+    <Key>
+      <PropertyRef Name="DigitalRequestSeqNbr" />
+    </Key>
+    <Property Name="DigitalRequestSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="WorkQueueCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AssignDate" Type="char" MaxLength="8" />
+    <Property Name="AssignTime" Type="char" MaxLength="6" />
+    <Property Name="Delay" Type="int" />
+  </EntityType>
+  <EntityType Name="DocArchiveStatus">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DocIdentType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="dtproperties">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="property" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="objectid" Type="int" />
+    <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="255" />
+    <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+    <Property Name="lvalue" Type="image" />
+    <Property Name="version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EAIClientLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Method" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Application" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Channel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Request" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RequestSize" Type="int" Nullable="false" />
+    <Property Name="RequestTimestamp" Type="datetime" Nullable="false" />
+    <Property Name="Response" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ResponseSize" Type="int" Nullable="false" />
+    <Property Name="ResponseTimestamp" Type="datetime" Nullable="false" />
+    <Property Name="ExecutionTimeMS" Type="int" Nullable="false" />
+    <Property Name="ExternalID" Type="varchar" MaxLength="50" />
+    <Property Name="KeyData" Type="nvarchar(max)" />
+    <Property Name="BizProcNbr" Type="varchar" MaxLength="20" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="255" />
+    <Property Name="Error" Type="bit" Nullable="false" />
+    <Property Name="ErrorCode" Type="varchar" MaxLength="50" />
+    <Property Name="ErrorMessage" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="EmulatorData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MethodName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="Delay" Type="int" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationUser" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="ModifyUser" Type="varchar" MaxLength="50" />
+    <Property Name="IsError" Type="bit" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="EmulatorRequestField">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmulatorDataID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Value" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmulatorResponseField">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmulatorDataID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Value" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnterpriseUnitGroupUser">
+    <Key>
+      <PropertyRef Name="EntUnitGroup" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="EntUnitGroup" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnterpriseUnitUser">
+    <Key>
+      <PropertyRef Name="EntUnitName" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="EntUnitName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntUnitGroup" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FilterType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HolderDetachmentMotive">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="HolderRelationshipType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HouseType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="IncomeLevel">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Insurance">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+    <Property Name="Broker" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="InsuranceProduct">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Broker" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="InsuranceVoid">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="DAProcessSeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="InsuranceCode" Type="varchar" MaxLength="50" />
+    <Property Name="MotiveCode" Type="varchar" MaxLength="10" />
+    <Property Name="ActionCode" Type="varchar" MaxLength="10" />
+    <Property Name="Processed" Type="bit" Nullable="false" />
+    <Property Name="ProcessDate" Type="datetime" />
+    <Property Name="IsOutboundCampaign" Type="bit" Nullable="false" />
+    <Property Name="InsuranceProduct" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InsuranceVoidAction">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="InsuranceVoidMotive">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="IssueEntity">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ManualProcessType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ManualProcessVolumeReg">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="RegistrationDate" Type="datetime" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="ManualProcessType" Type="nchar" MaxLength="10" />
+    <Property Name="Volume" Type="int" />
+  </EntityType>
+  <EntityType Name="ManualProcessVolumeRegHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ManualProcessID" Type="int" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RecordUser" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ManualProcessType" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifyUser" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MapTxnCode">
+    <Key>
+      <PropertyRef Name="TxnName" />
+      <PropertyRef Name="TxnCode" />
+    </Key>
+    <Property Name="TxnName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="TxnCode" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="OCRConfig">
+    <Key>
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PaymentMode">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PhoneOwnership">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="PoliticalRelationshipGrade">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PoliticalRole">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PoliticalRoleLocation">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ProcessTemplate">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProductAnnexTemplate">
+    <Key>
+      <PropertyRef Name="ProductCode" />
+    </Key>
+    <Property Name="ProductCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="AnnexTemplateCode" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ProofDoc">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProofType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="IndMandatorySimplified" Type="bit" />
+    <Property Name="IndMandatoryComplete" Type="bit" />
+    <Property Name="NbrDaysAttachAfterArchive" Type="int" />
+  </EntityType>
+  <EntityType Name="ProofTypeBizProcessType">
+    <Key>
+      <PropertyRef Name="BizProcessTypeCode" />
+      <PropertyRef Name="ProofTypeCode" />
+      <PropertyRef Name="DocTemplateCode" />
+    </Key>
+    <Property Name="BizProcessTypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProofTypeCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DocTemplateCode" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="IsMandatory" Type="bit" Nullable="false" />
+    <Property Name="HolderNbr" Type="int" />
+  </EntityType>
+  <EntityType Name="ProofTypeDoc">
+    <Key>
+      <PropertyRef Name="ProofTypeCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="ProofTypeCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Proposal">
+    <Key>
+      <PropertyRef Name="ProposalNbr" />
+    </Key>
+    <Property Name="ProposalNbr" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IBAN" Type="varchar" MaxLength="35" />
+    <Property Name="BIC_SWIFT" Type="varchar" MaxLength="20" />
+    <Property Name="AccountDate" Type="varchar" MaxLength="8" />
+    <Property Name="AccountOwnershipCode" Type="varchar" MaxLength="15" />
+    <Property Name="OPCCode" Type="varchar" MaxLength="50" />
+    <Property Name="OPCName" Type="varchar" MaxLength="255" />
+    <Property Name="Term" Type="int" />
+    <Property Name="TAN" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TAEG" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="WithInsurance" Type="bit" />
+    <Property Name="MinAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="255" />
+    <Property Name="InstallmentAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="BankCardDataAutoCollected" Type="bit" />
+    <Property Name="Adhesion" Type="bit" />
+    <Property Name="InsuranceCode" Type="varchar" MaxLength="50" />
+    <Property Name="InsuranceDesc" Type="varchar" MaxLength="255" />
+    <Property Name="Refusal" Type="bit" />
+    <Property Name="HasProvisionalCardNbr" Type="bit" />
+  </EntityType>
+  <EntityType Name="PurchaseDismissMode">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PurchaseMode">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="RegexFilter">
+    <Key>
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="ReferenceKey" />
+    </Key>
+    <Property Name="Reference" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="ReferenceKey" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Expression" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="IndApplyGenericRules" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PCERuntime.dbo.RegexFilterGenericRule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RegexFilterGenericRule">
+    <Key>
+      <PropertyRef Name="Reference" />
+      <PropertyRef Name="Rule" />
+      <PropertyRef Name="Priority" />
+    </Key>
+    <Property Name="Reference" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Rule" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RelationGrade">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PCERuntime.dbo.SelfCareStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SelfCareStatus">
+    <Key>
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="IsPending" />
+    </Key>
+    <Property Name="Status" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="IsPending" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SelfCareUser">
+    <Key>
+      <PropertyRef Name="User" />
+    </Key>
+    <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="SelfCare" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SeqNbr">
+    <Key>
+      <PropertyRef Name="TableName" />
+    </Key>
+    <Property Name="TableName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShippingFormat">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ShippingType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SignatureType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SimulationParam">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Period" Type="int" Nullable="false" />
+    <Property Name="Plaflond" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="MonthlyFee" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="FinalFee" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="TAN" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="TAEG" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="MTICWithISUC" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="MTICWithoutISUC" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="FirstMonthlyFee" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="InsuranceFee" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="OpenningFee" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="StudyFee" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="RequestedAmountPlusInsurance" Type="decimal" Precision="18" Scale="8" Nullable="false" />
+    <Property Name="HasInsurance" Type="bit" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="SimulationTypeCode" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="SimulationType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TransitionType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PCERuntime.dbo.TxnBranchCtrl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TxnBranchCtrl">
+    <Key>
+      <PropertyRef Name="InstitutionCode" />
+      <PropertyRef Name="TxnCode" />
+      <PropertyRef Name="BranchCode" />
+    </Key>
+    <Property Name="InstitutionCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="TxnCode" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="BranchCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PCERuntime.dbo.TxnOperation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TxnOperation">
+    <Key>
+      <PropertyRef Name="InstitutionCode" />
+      <PropertyRef Name="TxnCode" />
+      <PropertyRef Name="OpCode" />
+    </Key>
+    <Property Name="InstitutionCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="TxnCode" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="OpCode" Type="char" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PCERuntime.dbo.TxnPagingSeqNbr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TxnPagingSeqNbr">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TxnSchedulingCtrl">
+    <Key>
+      <PropertyRef Name="TxnCode" />
+    </Key>
+    <Property Name="TxnCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="ExpiryTimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TxnSeqNbr">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="BranchID" />
+      <PropertyRef Name="PostingDate" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BranchID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="PostingDate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="SeqNbr" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PCERuntime.dbo.TxnSeqNbrGlobal' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TxnSeqNbrGlobal">
+          <Property Name="SeqNbr" Type="int" />
+        </EntityType>-->
+  <EntityType Name="UnitGroupDocument">
+    <Key>
+      <PropertyRef Name="DocumentName" />
+      <PropertyRef Name="UnitGroupCode" />
+    </Key>
+    <Property Name="DocumentName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="UnitGroupCode" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitGroupInsurance">
+    <Key>
+      <PropertyRef Name="InsuranceCode" />
+      <PropertyRef Name="UnitGroupCode" />
+    </Key>
+    <Property Name="InsuranceCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnitGroupCode" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserFilter">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FilterUser" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FilterTypeCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="BeginDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="15" />
+    <Property Name="Channel" Type="varchar" MaxLength="2550" />
+    <Property Name="ContactChannel" Type="varchar" MaxLength="2550" />
+    <Property Name="BranchCode" Type="varchar" MaxLength="2550" />
+    <Property Name="WorkQueueCode" Type="varchar" MaxLength="2550" />
+    <Property Name="User" Type="varchar" MaxLength="2550" />
+    <Property Name="ActiveSession" Type="bit" Nullable="false" />
+    <Property Name="Default" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="WorkQueue" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="WorkContractType">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="WorkQueue">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WorkQueueUser">
+    <Key>
+      <PropertyRef Name="WorkQueueCode" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="WorkQueueCode" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Anomaly_AnomalyTheme">
+    <End Role="AnomalyTheme" Type="Self.AnomalyTheme" Multiplicity="0..1" />
+    <End Role="Anomaly" Type="Self.Anomaly" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnomalyTheme">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Anomaly">
+        <PropertyRef Name="AnomalyThemeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Anomaly_AnomalyType">
+    <End Role="AnomalyType" Type="Self.AnomalyType" Multiplicity="0..1" />
+    <End Role="Anomaly" Type="Self.Anomaly" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnomalyType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Anomaly">
+        <PropertyRef Name="AnomalyTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComplaintSubMotive_ComplaintMotive">
+    <End Role="ComplaintMotive" Type="Self.ComplaintMotive" Multiplicity="1" />
+    <End Role="ComplaintSubMotive" Type="Self.ComplaintSubMotive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComplaintMotive">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="ComplaintSubMotive">
+        <PropertyRef Name="ComplaintMotiveCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContractBreach_ContractBreach">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="ContractBreach" Type="Self.ContractBreach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="ContractBreach">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_ContractType">
+    <End Role="ContractType" Type="Self.ContractType" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ContractTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_CountryOfBirth">
+    <End Role="CountryOfBirth" Type="Self.CountryOfBirth" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryOfBirth">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CountryOfBirthCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_HouseType">
+    <End Role="HouseType" Type="Self.HouseType" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HouseType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="HouseTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_IncomeLevel">
+    <End Role="IncomeLevel" Type="Self.IncomeLevel" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IncomeLevel">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="IncomeLevelCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_IssueEntity">
+    <End Role="IssueEntity" Type="Self.IssueEntity" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IssueEntity">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="IssueEntityCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_MaritalStatus">
+    <End Role="MaritalStatus" Type="Self.MaritalStatus" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="MaritalStatusCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Nationality">
+    <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="NationalityCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Nationality1">
+    <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="OtherNationalityCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_PhoneOwnership">
+    <End Role="PhoneOwnership" Type="Self.PhoneOwnership" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhoneOwnership">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="PhoneOwnershipCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_PoliticalRelationshipGrade">
+    <End Role="PoliticalRelationshipGrade" Type="Self.PoliticalRelationshipGrade" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PoliticalRelationshipGrade">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="PoliticalRelationshipGradeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_PoliticalRole">
+    <End Role="PoliticalRole" Type="Self.PoliticalRole" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PoliticalRole">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="PoliticalRoleCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ProfessionCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcess_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="0..1" />
+    <End Role="DAProcess1" Type="Self.DAProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcess1">
+        <PropertyRef Name="AssociatedDAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAPRocessCustomer_DAPRocessCustomer">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessHolder" Type="Self.DAProcessHolder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessHolder">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDigitalRequest_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessDigitalRequest" Type="Self.DAProcessDigitalRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessDigitalRequest">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDigitalRequest_DigitalRequest">
+    <End Role="DigitalRequest" Type="Self.DigitalRequest" Multiplicity="1" />
+    <End Role="DAProcessDigitalRequest" Type="Self.DAProcessDigitalRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DigitalRequest">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessDigitalRequest">
+        <PropertyRef Name="DigitalRequestSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDoc_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessDoc" Type="Self.DAProcessDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessDoc">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDoc_DAProcessDocStatus">
+    <End Role="DAProcessDocStatus" Type="Self.DAProcessDocStatus" Multiplicity="1" />
+    <End Role="DAProcessDoc" Type="Self.DAProcessDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcessDocStatus">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessDoc">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDoc_DocArchiveStatus">
+    <End Role="DocArchiveStatus" Type="Self.DocArchiveStatus" Multiplicity="0..1" />
+    <End Role="DAProcessDoc" Type="Self.DAProcessDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocArchiveStatus">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessDoc">
+        <PropertyRef Name="DocStatusCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDoc_ProofDoc">
+    <End Role="ProofDoc" Type="Self.ProofDoc" Multiplicity="0..1" />
+    <End Role="DAProcessDoc" Type="Self.DAProcessDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProofDoc">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessDoc">
+        <PropertyRef Name="ProofDocCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessDocHistory_DAProcessDoc">
+    <End Role="DAProcessDoc" Type="Self.DAProcessDoc" Multiplicity="1" />
+    <End Role="DAProcessDocHistory" Type="Self.DAProcessDocHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcessDoc">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessDocHistory">
+        <PropertyRef Name="DAProcessDocSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessOperation_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessOperation" Type="Self.DAProcessOperation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessOperation">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessPhysicalContract_ContractPhysicalStatus">
+    <End Role="ContractPhysicalStatus" Type="Self.ContractPhysicalStatus" Multiplicity="1" />
+    <End Role="DAProcessPhysicalContract" Type="Self.DAProcessPhysicalContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractPhysicalStatus">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessPhysicalContract">
+        <PropertyRef Name="StatusCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessPhysicalContract_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessPhysicalContract" Type="Self.DAProcessPhysicalContract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessPhysicalContract">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessSignature_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessSignature" Type="Self.DAProcessSignature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessSignature">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessSignature_DAProcessDoc">
+    <End Role="DAProcessDoc" Type="Self.DAProcessDoc" Multiplicity="0..1" />
+    <End Role="DAProcessSignature" Type="Self.DAProcessSignature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcessDoc">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessSignature">
+        <PropertyRef Name="DAProcessDocSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessSignature_DAProcessSignatureStatus">
+    <End Role="DAProcessSignatureStatus" Type="Self.DAProcessSignatureStatus" Multiplicity="0..1" />
+    <End Role="DAProcessSignature" Type="Self.DAProcessSignature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcessSignatureStatus">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessSignature">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessSignature_SignatureType">
+    <End Role="SignatureType" Type="Self.SignatureType" Multiplicity="0..1" />
+    <End Role="DAProcessSignature" Type="Self.DAProcessSignature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SignatureType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessSignature">
+        <PropertyRef Name="SignatureTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessWorkQueue_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessWorkQueue" Type="Self.DAProcessWorkQueue" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessWorkQueue">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessWorkQueueHistory_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DAProcessWorkQueueHistory" Type="Self.DAProcessWorkQueueHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DAProcessWorkQueueHistory">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessWorkQueueHistory_TransitionType">
+    <End Role="TransitionType" Type="Self.TransitionType" Multiplicity="0..1" />
+    <End Role="DAProcessWorkQueueHistory" Type="Self.DAProcessWorkQueueHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransitionType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessWorkQueueHistory">
+        <PropertyRef Name="TransitionTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DAProcessWorkQueueHistory_WorkQueue">
+    <End Role="WorkQueue" Type="Self.WorkQueue" Multiplicity="1" />
+    <End Role="DAProcessWorkQueueHistory" Type="Self.DAProcessWorkQueueHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkQueue">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DAProcessWorkQueueHistory">
+        <PropertyRef Name="WorkQueueCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeclarationRequest_DAProcess">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="DeclarationRequest" Type="Self.DeclarationRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DeclarationRequest">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DigitalRequest_BizProcessType">
+    <End Role="BizProcessType" Type="Self.BizProcessType" Multiplicity="0..1" />
+    <End Role="DigitalRequest" Type="Self.DigitalRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BizProcessType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DigitalRequest">
+        <PropertyRef Name="BizProcessTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DigitalRequest_DigitalRequestStatus">
+    <End Role="DigitalRequestStatus" Type="Self.DigitalRequestStatus" Multiplicity="1" />
+    <End Role="DigitalRequest" Type="Self.DigitalRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DigitalRequestStatus">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DigitalRequest">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DigitalRequestWorkQueue_DigitalRequest">
+    <End Role="DigitalRequest" Type="Self.DigitalRequest" Multiplicity="1" />
+    <End Role="DigitalRequestWorkQueue" Type="Self.DigitalRequestWorkQueue" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DigitalRequest">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="DigitalRequestWorkQueue">
+        <PropertyRef Name="DigitalRequestSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmulatorRequestField_EmulatorData">
+    <End Role="EmulatorData" Type="Self.EmulatorData" Multiplicity="1" />
+    <End Role="EmulatorRequestField" Type="Self.EmulatorRequestField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmulatorData">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmulatorRequestField">
+        <PropertyRef Name="EmulatorDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmulatorResponseField_EmulatorData">
+    <End Role="EmulatorData" Type="Self.EmulatorData" Multiplicity="1" />
+    <End Role="EmulatorResponseField" Type="Self.EmulatorResponseField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmulatorData">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmulatorResponseField">
+        <PropertyRef Name="EmulatorDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InsuranceVoid_DAProcess1">
+    <End Role="DAProcess" Type="Self.DAProcess" Multiplicity="1" />
+    <End Role="InsuranceVoid" Type="Self.InsuranceVoid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DAProcess">
+        <PropertyRef Name="SeqNbr" />
+      </Principal>
+      <Dependent Role="InsuranceVoid">
+        <PropertyRef Name="DAProcessSeqNbr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InsuranceVoid_InsuranceProduct">
+    <End Role="InsuranceProduct" Type="Self.InsuranceProduct" Multiplicity="0..1" />
+    <End Role="InsuranceVoid" Type="Self.InsuranceVoid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuranceProduct">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="InsuranceVoid">
+        <PropertyRef Name="InsuranceProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ManualProcessVolumeRegHistory_ManualProcessVolumeReg">
+    <End Role="ManualProcessVolumeReg" Type="Self.ManualProcessVolumeReg" Multiplicity="1" />
+    <End Role="ManualProcessVolumeRegHistory" Type="Self.ManualProcessVolumeRegHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManualProcessVolumeReg">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ManualProcessVolumeRegHistory">
+        <PropertyRef Name="ManualProcessID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProofTypeBizProcessType_BizProcessType">
+    <End Role="BizProcessType" Type="Self.BizProcessType" Multiplicity="1" />
+    <End Role="ProofTypeBizProcessType" Type="Self.ProofTypeBizProcessType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BizProcessType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="ProofTypeBizProcessType">
+        <PropertyRef Name="BizProcessTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProofTypeBizProcessType_ProofType">
+    <End Role="ProofType" Type="Self.ProofType" Multiplicity="1" />
+    <End Role="ProofTypeBizProcessType" Type="Self.ProofTypeBizProcessType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProofType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="ProofTypeBizProcessType">
+        <PropertyRef Name="ProofTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProofTypeDoc_ProofType">
+    <End Role="ProofType" Type="Self.ProofType" Multiplicity="1" />
+    <End Role="ProofTypeDoc" Type="Self.ProofTypeDoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProofType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="ProofTypeDoc">
+        <PropertyRef Name="ProofTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proposal_AccountOwnership">
+    <End Role="AccountOwnership" Type="Self.AccountOwnership" Multiplicity="0..1" />
+    <End Role="Proposal" Type="Self.Proposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountOwnership">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Proposal">
+        <PropertyRef Name="AccountOwnershipCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SimulationParam_SimulationType">
+    <End Role="SimulationType" Type="Self.SimulationType" Multiplicity="0..1" />
+    <End Role="SimulationParam" Type="Self.SimulationParam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SimulationType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="SimulationParam">
+        <PropertyRef Name="SimulationTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnitGroupInsurance_Insurance">
+    <End Role="Insurance" Type="Self.Insurance" Multiplicity="1" />
+    <End Role="UnitGroupInsurance" Type="Self.UnitGroupInsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insurance">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="UnitGroupInsurance">
+        <PropertyRef Name="InsuranceCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFilter_FilterType">
+    <End Role="FilterType" Type="Self.FilterType" Multiplicity="1" />
+    <End Role="UserFilter" Type="Self.UserFilter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FilterType">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="UserFilter">
+        <PropertyRef Name="FilterTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PCERuntimeModelStoreContainer">
+    <EntitySet Name="AccountOwnership" EntityType="Self.AccountOwnership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Anomaly" EntityType="Self.Anomaly" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnomalyTheme" EntityType="Self.AnomalyTheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnomalyType" EntityType="Self.AnomalyType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankCard" EntityType="Self.BankCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BizChannel" EntityType="Self.BizChannel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BizProcessType" EntityType="Self.BizProcessType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardRequestMotive" EntityType="Self.CardRequestMotive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CitizenCard" EntityType="Self.CitizenCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Citizenship" EntityType="Self.Citizenship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComplaintMotive" EntityType="Self.ComplaintMotive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComplaintOrigin" EntityType="Self.ComplaintOrigin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComplaintSubMotive" EntityType="Self.ComplaintSubMotive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactChannel" EntityType="Self.ContactChannel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactType" EntityType="Self.ContactType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractBreach" EntityType="Self.ContractBreach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractBreachMotive" EntityType="Self.ContractBreachMotive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractPhysicalStatus" EntityType="Self.ContractPhysicalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractType" EntityType="Self.ContractType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryOfBirth" EntityType="Self.CountryOfBirth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryOfBirthTest" EntityType="Self.CountryOfBirthTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerContract" EntityType="Self.CustomerContract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerProfile" EntityType="Self.CustomerProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcess" EntityType="Self.DAProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessAnomaly" EntityType="Self.DAProcessAnomaly" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessDigitalRequest" EntityType="Self.DAProcessDigitalRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessDoc" EntityType="Self.DAProcessDoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessDocHistory" EntityType="Self.DAProcessDocHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessDocStatus" EntityType="Self.DAProcessDocStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessHolder" EntityType="Self.DAProcessHolder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessOperation" EntityType="Self.DAProcessOperation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessPhysicalContract" EntityType="Self.DAProcessPhysicalContract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessSignature" EntityType="Self.DAProcessSignature" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessSignatureStatus" EntityType="Self.DAProcessSignatureStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessWorkQueue" EntityType="Self.DAProcessWorkQueue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAProcessWorkQueueHistory" EntityType="Self.DAProcessWorkQueueHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeclarationRequest" EntityType="Self.DeclarationRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeclarationType" EntityType="Self.DeclarationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryArea" EntityType="Self.DeliveryArea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DigitalRequest" EntityType="Self.DigitalRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DigitalRequestStatus" EntityType="Self.DigitalRequestStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DigitalRequestWorkQueue" EntityType="Self.DigitalRequestWorkQueue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocArchiveStatus" EntityType="Self.DocArchiveStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocIdentType" EntityType="Self.DocIdentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EAIClientLog" EntityType="Self.EAIClientLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmulatorData" EntityType="Self.EmulatorData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmulatorRequestField" EntityType="Self.EmulatorRequestField" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmulatorResponseField" EntityType="Self.EmulatorResponseField" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnterpriseUnitGroupUser" EntityType="Self.EnterpriseUnitGroupUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnterpriseUnitUser" EntityType="Self.EnterpriseUnitUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FilterType" EntityType="Self.FilterType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HolderDetachmentMotive" EntityType="Self.HolderDetachmentMotive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HolderRelationshipType" EntityType="Self.HolderRelationshipType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HouseType" EntityType="Self.HouseType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeLevel" EntityType="Self.IncomeLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Insurance" EntityType="Self.Insurance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceProduct" EntityType="Self.InsuranceProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceVoid" EntityType="Self.InsuranceVoid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceVoidAction" EntityType="Self.InsuranceVoidAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuranceVoidMotive" EntityType="Self.InsuranceVoidMotive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IssueEntity" EntityType="Self.IssueEntity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManualProcessType" EntityType="Self.ManualProcessType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManualProcessVolumeReg" EntityType="Self.ManualProcessVolumeReg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManualProcessVolumeRegHistory" EntityType="Self.ManualProcessVolumeRegHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MapTxnCode" EntityType="Self.MapTxnCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nationality" EntityType="Self.Nationality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OCRConfig" EntityType="Self.OCRConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMode" EntityType="Self.PaymentMode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhoneOwnership" EntityType="Self.PhoneOwnership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PoliticalRelationshipGrade" EntityType="Self.PoliticalRelationshipGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PoliticalRole" EntityType="Self.PoliticalRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PoliticalRoleLocation" EntityType="Self.PoliticalRoleLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessTemplate" EntityType="Self.ProcessTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductAnnexTemplate" EntityType="Self.ProductAnnexTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profession" EntityType="Self.Profession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProofDoc" EntityType="Self.ProofDoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProofType" EntityType="Self.ProofType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProofTypeBizProcessType" EntityType="Self.ProofTypeBizProcessType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProofTypeDoc" EntityType="Self.ProofTypeDoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proposal" EntityType="Self.Proposal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseDismissMode" EntityType="Self.PurchaseDismissMode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseMode" EntityType="Self.PurchaseMode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegexFilter" EntityType="Self.RegexFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RelationGrade" EntityType="Self.RelationGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SelfCareUser" EntityType="Self.SelfCareUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SeqNbr" EntityType="Self.SeqNbr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShippingFormat" EntityType="Self.ShippingFormat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShippingType" EntityType="Self.ShippingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SignatureType" EntityType="Self.SignatureType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SimulationParam" EntityType="Self.SimulationParam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SimulationType" EntityType="Self.SimulationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransitionType" EntityType="Self.TransitionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TxnSchedulingCtrl" EntityType="Self.TxnSchedulingCtrl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TxnSeqNbr" EntityType="Self.TxnSeqNbr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitGroupDocument" EntityType="Self.UnitGroupDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitGroupInsurance" EntityType="Self.UnitGroupInsurance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserFilter" EntityType="Self.UserFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkContractType" EntityType="Self.WorkContractType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkQueue" EntityType="Self.WorkQueue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkQueueUser" EntityType="Self.WorkQueueUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegexFilterGenericRule" EntityType="Self.RegexFilterGenericRule" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RegexFilterGenericRule].[Reference] AS [Reference], 
+    [RegexFilterGenericRule].[Rule] AS [Rule], 
+    [RegexFilterGenericRule].[Priority] AS [Priority]
+    FROM [dbo].[RegexFilterGenericRule] AS [RegexFilterGenericRule]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SelfCareStatus" EntityType="Self.SelfCareStatus" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SelfCareStatus].[Status] AS [Status], 
+    [SelfCareStatus].[IsPending] AS [IsPending]
+    FROM [dbo].[SelfCareStatus] AS [SelfCareStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TxnBranchCtrl" EntityType="Self.TxnBranchCtrl" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TxnBranchCtrl].[InstitutionCode] AS [InstitutionCode], 
+    [TxnBranchCtrl].[TxnCode] AS [TxnCode], 
+    [TxnBranchCtrl].[BranchCode] AS [BranchCode], 
+    [TxnBranchCtrl].[Status] AS [Status]
+    FROM [dbo].[TxnBranchCtrl] AS [TxnBranchCtrl]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TxnOperation" EntityType="Self.TxnOperation" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TxnOperation].[InstitutionCode] AS [InstitutionCode], 
+    [TxnOperation].[TxnCode] AS [TxnCode], 
+    [TxnOperation].[OpCode] AS [OpCode]
+    FROM [dbo].[TxnOperation] AS [TxnOperation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TxnPagingSeqNbr" EntityType="Self.TxnPagingSeqNbr" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TxnPagingSeqNbr].[SeqNbr] AS [SeqNbr]
+    FROM [dbo].[TxnPagingSeqNbr] AS [TxnPagingSeqNbr]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Anomaly_AnomalyTheme" Association="Self.FK_Anomaly_AnomalyTheme">
+      <End Role="AnomalyTheme" EntitySet="AnomalyTheme" />
+      <End Role="Anomaly" EntitySet="Anomaly" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Anomaly_AnomalyType" Association="Self.FK_Anomaly_AnomalyType">
+      <End Role="AnomalyType" EntitySet="AnomalyType" />
+      <End Role="Anomaly" EntitySet="Anomaly" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComplaintSubMotive_ComplaintMotive" Association="Self.FK_ComplaintSubMotive_ComplaintMotive">
+      <End Role="ComplaintMotive" EntitySet="ComplaintMotive" />
+      <End Role="ComplaintSubMotive" EntitySet="ComplaintSubMotive" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContractBreach_ContractBreach" Association="Self.FK_ContractBreach_ContractBreach">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="ContractBreach" EntitySet="ContractBreach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_ContractType" Association="Self.FK_Customer_ContractType">
+      <End Role="ContractType" EntitySet="ContractType" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_CountryOfBirth" Association="Self.FK_Customer_CountryOfBirth">
+      <End Role="CountryOfBirth" EntitySet="CountryOfBirth" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_HouseType" Association="Self.FK_Customer_HouseType">
+      <End Role="HouseType" EntitySet="HouseType" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_IncomeLevel" Association="Self.FK_Customer_IncomeLevel">
+      <End Role="IncomeLevel" EntitySet="IncomeLevel" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_IssueEntity" Association="Self.FK_Customer_IssueEntity">
+      <End Role="IssueEntity" EntitySet="IssueEntity" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_MaritalStatus" Association="Self.FK_Customer_MaritalStatus">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Nationality" Association="Self.FK_Customer_Nationality">
+      <End Role="Nationality" EntitySet="Nationality" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Nationality1" Association="Self.FK_Customer_Nationality1">
+      <End Role="Nationality" EntitySet="Nationality" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_PhoneOwnership" Association="Self.FK_Customer_PhoneOwnership">
+      <End Role="PhoneOwnership" EntitySet="PhoneOwnership" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_PoliticalRelationshipGrade" Association="Self.FK_Customer_PoliticalRelationshipGrade">
+      <End Role="PoliticalRelationshipGrade" EntitySet="PoliticalRelationshipGrade" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_PoliticalRole" Association="Self.FK_Customer_PoliticalRole">
+      <End Role="PoliticalRole" EntitySet="PoliticalRole" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Profession" Association="Self.FK_Customer_Profession">
+      <End Role="Profession" EntitySet="Profession" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcess_DAProcess" Association="Self.FK_DAProcess_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcess1" EntitySet="DAProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAPRocessCustomer_DAPRocessCustomer" Association="Self.FK_DAPRocessCustomer_DAPRocessCustomer">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessHolder" EntitySet="DAProcessHolder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDigitalRequest_DAProcess" Association="Self.FK_DAProcessDigitalRequest_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessDigitalRequest" EntitySet="DAProcessDigitalRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDigitalRequest_DigitalRequest" Association="Self.FK_DAProcessDigitalRequest_DigitalRequest">
+      <End Role="DigitalRequest" EntitySet="DigitalRequest" />
+      <End Role="DAProcessDigitalRequest" EntitySet="DAProcessDigitalRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDoc_DAProcess" Association="Self.FK_DAProcessDoc_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessDoc" EntitySet="DAProcessDoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDoc_DAProcessDocStatus" Association="Self.FK_DAProcessDoc_DAProcessDocStatus">
+      <End Role="DAProcessDocStatus" EntitySet="DAProcessDocStatus" />
+      <End Role="DAProcessDoc" EntitySet="DAProcessDoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDoc_DocArchiveStatus" Association="Self.FK_DAProcessDoc_DocArchiveStatus">
+      <End Role="DocArchiveStatus" EntitySet="DocArchiveStatus" />
+      <End Role="DAProcessDoc" EntitySet="DAProcessDoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDoc_ProofDoc" Association="Self.FK_DAProcessDoc_ProofDoc">
+      <End Role="ProofDoc" EntitySet="ProofDoc" />
+      <End Role="DAProcessDoc" EntitySet="DAProcessDoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessDocHistory_DAProcessDoc" Association="Self.FK_DAProcessDocHistory_DAProcessDoc">
+      <End Role="DAProcessDoc" EntitySet="DAProcessDoc" />
+      <End Role="DAProcessDocHistory" EntitySet="DAProcessDocHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessOperation_DAProcess" Association="Self.FK_DAProcessOperation_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessOperation" EntitySet="DAProcessOperation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessPhysicalContract_ContractPhysicalStatus" Association="Self.FK_DAProcessPhysicalContract_ContractPhysicalStatus">
+      <End Role="ContractPhysicalStatus" EntitySet="ContractPhysicalStatus" />
+      <End Role="DAProcessPhysicalContract" EntitySet="DAProcessPhysicalContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessPhysicalContract_DAProcess" Association="Self.FK_DAProcessPhysicalContract_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessPhysicalContract" EntitySet="DAProcessPhysicalContract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessSignature_DAProcess" Association="Self.FK_DAProcessSignature_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessSignature" EntitySet="DAProcessSignature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessSignature_DAProcessDoc" Association="Self.FK_DAProcessSignature_DAProcessDoc">
+      <End Role="DAProcessDoc" EntitySet="DAProcessDoc" />
+      <End Role="DAProcessSignature" EntitySet="DAProcessSignature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessSignature_DAProcessSignatureStatus" Association="Self.FK_DAProcessSignature_DAProcessSignatureStatus">
+      <End Role="DAProcessSignatureStatus" EntitySet="DAProcessSignatureStatus" />
+      <End Role="DAProcessSignature" EntitySet="DAProcessSignature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessSignature_SignatureType" Association="Self.FK_DAProcessSignature_SignatureType">
+      <End Role="SignatureType" EntitySet="SignatureType" />
+      <End Role="DAProcessSignature" EntitySet="DAProcessSignature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessWorkQueue_DAProcess" Association="Self.FK_DAProcessWorkQueue_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessWorkQueue" EntitySet="DAProcessWorkQueue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessWorkQueueHistory_DAProcess" Association="Self.FK_DAProcessWorkQueueHistory_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DAProcessWorkQueueHistory" EntitySet="DAProcessWorkQueueHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessWorkQueueHistory_TransitionType" Association="Self.FK_DAProcessWorkQueueHistory_TransitionType">
+      <End Role="TransitionType" EntitySet="TransitionType" />
+      <End Role="DAProcessWorkQueueHistory" EntitySet="DAProcessWorkQueueHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DAProcessWorkQueueHistory_WorkQueue" Association="Self.FK_DAProcessWorkQueueHistory_WorkQueue">
+      <End Role="WorkQueue" EntitySet="WorkQueue" />
+      <End Role="DAProcessWorkQueueHistory" EntitySet="DAProcessWorkQueueHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeclarationRequest_DAProcess" Association="Self.FK_DeclarationRequest_DAProcess">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="DeclarationRequest" EntitySet="DeclarationRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DigitalRequest_BizProcessType" Association="Self.FK_DigitalRequest_BizProcessType">
+      <End Role="BizProcessType" EntitySet="BizProcessType" />
+      <End Role="DigitalRequest" EntitySet="DigitalRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DigitalRequest_DigitalRequestStatus" Association="Self.FK_DigitalRequest_DigitalRequestStatus">
+      <End Role="DigitalRequestStatus" EntitySet="DigitalRequestStatus" />
+      <End Role="DigitalRequest" EntitySet="DigitalRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DigitalRequestWorkQueue_DigitalRequest" Association="Self.FK_DigitalRequestWorkQueue_DigitalRequest">
+      <End Role="DigitalRequest" EntitySet="DigitalRequest" />
+      <End Role="DigitalRequestWorkQueue" EntitySet="DigitalRequestWorkQueue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmulatorRequestField_EmulatorData" Association="Self.FK_EmulatorRequestField_EmulatorData">
+      <End Role="EmulatorData" EntitySet="EmulatorData" />
+      <End Role="EmulatorRequestField" EntitySet="EmulatorRequestField" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmulatorResponseField_EmulatorData" Association="Self.FK_EmulatorResponseField_EmulatorData">
+      <End Role="EmulatorData" EntitySet="EmulatorData" />
+      <End Role="EmulatorResponseField" EntitySet="EmulatorResponseField" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InsuranceVoid_DAProcess1" Association="Self.FK_InsuranceVoid_DAProcess1">
+      <End Role="DAProcess" EntitySet="DAProcess" />
+      <End Role="InsuranceVoid" EntitySet="InsuranceVoid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InsuranceVoid_InsuranceProduct" Association="Self.FK_InsuranceVoid_InsuranceProduct">
+      <End Role="InsuranceProduct" EntitySet="InsuranceProduct" />
+      <End Role="InsuranceVoid" EntitySet="InsuranceVoid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ManualProcessVolumeRegHistory_ManualProcessVolumeReg" Association="Self.FK_ManualProcessVolumeRegHistory_ManualProcessVolumeReg">
+      <End Role="ManualProcessVolumeReg" EntitySet="ManualProcessVolumeReg" />
+      <End Role="ManualProcessVolumeRegHistory" EntitySet="ManualProcessVolumeRegHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProofTypeBizProcessType_BizProcessType" Association="Self.FK_ProofTypeBizProcessType_BizProcessType">
+      <End Role="BizProcessType" EntitySet="BizProcessType" />
+      <End Role="ProofTypeBizProcessType" EntitySet="ProofTypeBizProcessType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProofTypeBizProcessType_ProofType" Association="Self.FK_ProofTypeBizProcessType_ProofType">
+      <End Role="ProofType" EntitySet="ProofType" />
+      <End Role="ProofTypeBizProcessType" EntitySet="ProofTypeBizProcessType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProofTypeDoc_ProofType" Association="Self.FK_ProofTypeDoc_ProofType">
+      <End Role="ProofType" EntitySet="ProofType" />
+      <End Role="ProofTypeDoc" EntitySet="ProofTypeDoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proposal_AccountOwnership" Association="Self.FK_Proposal_AccountOwnership">
+      <End Role="AccountOwnership" EntitySet="AccountOwnership" />
+      <End Role="Proposal" EntitySet="Proposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SimulationParam_SimulationType" Association="Self.FK_SimulationParam_SimulationType">
+      <End Role="SimulationType" EntitySet="SimulationType" />
+      <End Role="SimulationParam" EntitySet="SimulationParam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnitGroupInsurance_Insurance" Association="Self.FK_UnitGroupInsurance_Insurance">
+      <End Role="Insurance" EntitySet="Insurance" />
+      <End Role="UnitGroupInsurance" EntitySet="UnitGroupInsurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFilter_FilterType" Association="Self.FK_UserFilter_FilterType">
+      <End Role="FilterType" EntitySet="FilterType" />
+      <End Role="UserFilter" EntitySet="UserFilter" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

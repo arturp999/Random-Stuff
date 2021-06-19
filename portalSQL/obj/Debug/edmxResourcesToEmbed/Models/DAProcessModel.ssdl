@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DAProcessModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="daprocess">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="SeqNbr" Type="int" Nullable="false" />
+    <Property Name="ProductCode" Type="text" Nullable="false" />
+    <Property Name="Product" Type="text" Nullable="false" />
+    <Property Name="BizProcCode" Type="text" Nullable="false" />
+    <Property Name="Process" Type="text" Nullable="false" />
+    <Property Name="BizProcNbr" Type="text" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="StatusDesc" Type="text" Nullable="false" />
+    <Property Name="BranchCode" Type="text" Nullable="false" />
+    <Property Name="StatusDate" Type="text" Nullable="false" />
+    <Property Name="StatusTime" Type="text" Nullable="false" />
+    <Property Name="User" Type="text" Nullable="false" />
+    <Property Name="UserLock" Type="text" Nullable="false" />
+    <Property Name="CreationDate" Type="text" Nullable="false" />
+    <Property Name="CreationTime" Type="text" Nullable="false" />
+    <Property Name="CreationUser" Type="text" Nullable="false" />
+    <Property Name="CustomerName" Type="text" Nullable="false" />
+    <Property Name="CustomerNbr" Type="text" Nullable="false" />
+    <Property Name="ContractNbr" Type="text" Nullable="false" />
+    <Property Name="Transit" Type="text" Nullable="false" />
+    <Property Name="EntryChannel" Type="text" Nullable="false" />
+    <Property Name="CentralStatus" Type="text" Nullable="false" />
+    <Property Name="AssociatedDAProcessSeqNbr" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DAProcessModelStoreContainer">
+    <EntitySet Name="daprocess" EntityType="Self.daprocess" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

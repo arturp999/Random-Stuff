@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="infoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'pceruntimeDB.dbo.daprocess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="daprocess">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+      <PropertyRef Name="ProductCode" />
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="BizProcCode" />
+      <PropertyRef Name="Process" />
+      <PropertyRef Name="BizProcNbr" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="StatusDesc" />
+      <PropertyRef Name="BranchCode" />
+      <PropertyRef Name="StatusDate" />
+      <PropertyRef Name="StatusTime" />
+      <PropertyRef Name="User" />
+      <PropertyRef Name="UserLock" />
+      <PropertyRef Name="CreationDate" />
+      <PropertyRef Name="CreationTime" />
+      <PropertyRef Name="CreationUser" />
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="CustomerNbr" />
+      <PropertyRef Name="ContractNbr" />
+      <PropertyRef Name="Transit" />
+      <PropertyRef Name="EntryChannel" />
+      <PropertyRef Name="CentralStatus" />
+      <PropertyRef Name="AssociatedDAProcessSeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="int" Nullable="false" />
+    <Property Name="ProductCode" Type="text" Nullable="false" />
+    <Property Name="Product" Type="text" Nullable="false" />
+    <Property Name="BizProcCode" Type="text" Nullable="false" />
+    <Property Name="Process" Type="text" Nullable="false" />
+    <Property Name="BizProcNbr" Type="text" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="StatusDesc" Type="text" Nullable="false" />
+    <Property Name="BranchCode" Type="text" Nullable="false" />
+    <Property Name="StatusDate" Type="text" Nullable="false" />
+    <Property Name="StatusTime" Type="text" Nullable="false" />
+    <Property Name="User" Type="text" Nullable="false" />
+    <Property Name="UserLock" Type="text" Nullable="false" />
+    <Property Name="CreationDate" Type="text" Nullable="false" />
+    <Property Name="CreationTime" Type="text" Nullable="false" />
+    <Property Name="CreationUser" Type="text" Nullable="false" />
+    <Property Name="CustomerName" Type="text" Nullable="false" />
+    <Property Name="CustomerNbr" Type="text" Nullable="false" />
+    <Property Name="ContractNbr" Type="text" Nullable="false" />
+    <Property Name="Transit" Type="text" Nullable="false" />
+    <Property Name="EntryChannel" Type="text" Nullable="false" />
+    <Property Name="CentralStatus" Type="text" Nullable="false" />
+    <Property Name="AssociatedDAProcessSeqNbr" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="infoModelStoreContainer">
+    <EntitySet Name="daprocess" EntityType="Self.daprocess" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [daprocess].[SeqNbr] AS [SeqNbr], 
+    [daprocess].[ProductCode] AS [ProductCode], 
+    [daprocess].[Product] AS [Product], 
+    [daprocess].[BizProcCode] AS [BizProcCode], 
+    [daprocess].[Process] AS [Process], 
+    [daprocess].[BizProcNbr] AS [BizProcNbr], 
+    [daprocess].[Status] AS [Status], 
+    [daprocess].[StatusDesc] AS [StatusDesc], 
+    [daprocess].[BranchCode] AS [BranchCode], 
+    [daprocess].[StatusDate] AS [StatusDate], 
+    [daprocess].[StatusTime] AS [StatusTime], 
+    [daprocess].[User] AS [User], 
+    [daprocess].[UserLock] AS [UserLock], 
+    [daprocess].[CreationDate] AS [CreationDate], 
+    [daprocess].[CreationTime] AS [CreationTime], 
+    [daprocess].[CreationUser] AS [CreationUser], 
+    [daprocess].[CustomerName] AS [CustomerName], 
+    [daprocess].[CustomerNbr] AS [CustomerNbr], 
+    [daprocess].[ContractNbr] AS [ContractNbr], 
+    [daprocess].[Transit] AS [Transit], 
+    [daprocess].[EntryChannel] AS [EntryChannel], 
+    [daprocess].[CentralStatus] AS [CentralStatus], 
+    [daprocess].[AssociatedDAProcessSeqNbr] AS [AssociatedDAProcessSeqNbr]
+    FROM [dbo].[daprocess] AS [daprocess]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

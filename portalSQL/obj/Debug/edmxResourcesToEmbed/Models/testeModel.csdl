@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="infoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="daprocess">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+      <PropertyRef Name="ProductCode" />
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="BizProcCode" />
+      <PropertyRef Name="Process" />
+      <PropertyRef Name="BizProcNbr" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="StatusDesc" />
+      <PropertyRef Name="BranchCode" />
+      <PropertyRef Name="StatusDate" />
+      <PropertyRef Name="StatusTime" />
+      <PropertyRef Name="User" />
+      <PropertyRef Name="UserLock" />
+      <PropertyRef Name="CreationDate" />
+      <PropertyRef Name="CreationTime" />
+      <PropertyRef Name="CreationUser" />
+      <PropertyRef Name="CustomerName" />
+      <PropertyRef Name="CustomerNbr" />
+      <PropertyRef Name="ContractNbr" />
+      <PropertyRef Name="Transit" />
+      <PropertyRef Name="EntryChannel" />
+      <PropertyRef Name="CentralStatus" />
+      <PropertyRef Name="AssociatedDAProcessSeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="Int32" Nullable="false" />
+    <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BizProcCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Process" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BizProcNbr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="StatusDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StatusDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StatusTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserLock" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreationDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreationTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreationUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerNbr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContractNbr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Transit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntryChannel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CentralStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AssociatedDAProcessSeqNbr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="testeInfoDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="daprocesses" EntityType="Self.daprocess" />
+  </EntityContainer>
+</Schema>

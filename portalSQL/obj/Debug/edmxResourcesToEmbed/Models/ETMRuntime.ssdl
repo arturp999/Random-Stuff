@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ETMRuntimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETMRuntime.dbo.HostRequest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="HostRequest">
+    <Key>
+      <PropertyRef Name="DtRequest" />
+      <PropertyRef Name="Request" />
+    </Key>
+    <Property Name="AppSeqNbr" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DtRequest" Type="char" MaxLength="14" Nullable="false" />
+    <Property Name="Request" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TJ_Branch">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Authorizer" Type="varchar" MaxLength="50" />
+    <Property Name="ProcDate" Type="char" MaxLength="8" />
+    <Property Name="ProcTime" Type="char" MaxLength="6" />
+    <Property Name="WorkDate" Type="char" MaxLength="8" />
+    <Property Name="Channel" Type="varchar" MaxLength="20" />
+    <Property Name="Institution" Type="varchar" MaxLength="20" />
+    <Property Name="Branch" Type="varchar" MaxLength="20" />
+    <Property Name="TxnCode" Type="varchar" MaxLength="50" />
+    <Property Name="TxnName" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="RevStatus" Type="varchar" MaxLength="50" />
+    <Property Name="RevSeqNbr" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="AcctNbr" Type="varchar" MaxLength="22" />
+    <Property Name="TxnAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Currency" Type="varchar" MaxLength="3" />
+    <Property Name="DocNbr" Type="varchar" MaxLength="50" />
+    <Property Name="HostSeqNbr" Type="varchar" MaxLength="50" />
+    <Property Name="HostLineStatus" Type="varchar" MaxLength="1" />
+    <Property Name="HostResult" Type="varchar" MaxLength="10" />
+    <Property Name="HostMsg" Type="varchar" MaxLength="1024" />
+    <Property Name="UserMsg" Type="varchar" MaxLength="1024" />
+    <Property Name="Regularize" Type="bit" />
+    <Property Name="SysError" Type="text" />
+    <Property Name="Reversible" Type="bit" />
+    <Property Name="ReprintAllowed" Type="bit" />
+    <Property Name="ReprintPartialAllowed" Type="bit" />
+    <Property Name="PrintFormCount" Type="int" />
+    <Property Name="Workstation" Type="varchar" MaxLength="50" />
+    <Property Name="TxnDetail" Type="text" />
+  </EntityType>
+  <EntityType Name="TJ_WS">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Authorizer" Type="varchar" MaxLength="50" />
+    <Property Name="ProcDate" Type="char" MaxLength="8" />
+    <Property Name="ProcTime" Type="char" MaxLength="6" />
+    <Property Name="WorkDate" Type="char" MaxLength="8" />
+    <Property Name="Channel" Type="varchar" MaxLength="20" />
+    <Property Name="Institution" Type="varchar" MaxLength="20" />
+    <Property Name="Branch" Type="varchar" MaxLength="20" />
+    <Property Name="TxnCode" Type="varchar" MaxLength="50" />
+    <Property Name="TxnName" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="RevStatus" Type="varchar" MaxLength="50" />
+    <Property Name="RevSeqNbr" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="AcctNbr" Type="varchar" MaxLength="22" />
+    <Property Name="TxnAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Currency" Type="varchar" MaxLength="3" />
+    <Property Name="DocNbr" Type="varchar" MaxLength="50" />
+    <Property Name="HostSeqNbr" Type="varchar" MaxLength="50" />
+    <Property Name="HostLineStatus" Type="varchar" MaxLength="1" />
+    <Property Name="HostResult" Type="varchar" MaxLength="10" />
+    <Property Name="HostMsg" Type="varchar" MaxLength="1024" />
+    <Property Name="UserMsg" Type="varchar" MaxLength="1024" />
+    <Property Name="Regularize" Type="bit" />
+    <Property Name="SysError" Type="text" />
+    <Property Name="Reversible" Type="bit" />
+    <Property Name="PrintFormCount" Type="int" />
+    <Property Name="TxnDetail" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETMRuntime.dbo.TJSeqNbr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TJSeqNbr">
+    <Key>
+      <PropertyRef Name="SeqNbr" />
+    </Key>
+    <Property Name="SeqNbr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Total_Branch">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="WorkDate" />
+      <PropertyRef Name="User" />
+      <PropertyRef Name="Channel" />
+      <PropertyRef Name="InstitutionCode" />
+      <PropertyRef Name="EnterpriseUnit" />
+      <PropertyRef Name="Currency" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkDate" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Channel" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InstitutionCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EnterpriseUnit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Currency" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="TotalValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Counter" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WSRequest">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ExternalSeqNbr" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ExternalSeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="InternalSeqNbr" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TJSeqNbr" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="InstanceID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DtRequest" Type="char" MaxLength="14" Nullable="false" />
+    <Property Name="Response" Type="text" />
+  </EntityType>
+  <EntityContainer Name="ETMRuntimeModelStoreContainer">
+    <EntitySet Name="TJ_Branch" EntityType="Self.TJ_Branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TJ_WS" EntityType="Self.TJ_WS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Total_Branch" EntityType="Self.Total_Branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WSRequest" EntityType="Self.WSRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HostRequest" EntityType="Self.HostRequest" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [HostRequest].[AppSeqNbr] AS [AppSeqNbr], 
+    [HostRequest].[DtRequest] AS [DtRequest], 
+    [HostRequest].[Request] AS [Request]
+    FROM [dbo].[HostRequest] AS [HostRequest]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TJSeqNbr" EntityType="Self.TJSeqNbr" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TJSeqNbr].[SeqNbr] AS [SeqNbr]
+    FROM [dbo].[TJSeqNbr] AS [TJSeqNbr]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

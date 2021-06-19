@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ETMRuntimeModelStoreContainer" CdmEntityContainer="ETMRuntimeEntities">
+    <EntitySetMapping Name="TJ_Branch">
+      <EntityTypeMapping TypeName="ETMRuntimeModel.TJ_Branch">
+        <MappingFragment StoreEntitySet="TJ_Branch">
+          <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Authorizer" ColumnName="Authorizer" />
+          <ScalarProperty Name="ProcDate" ColumnName="ProcDate" />
+          <ScalarProperty Name="ProcTime" ColumnName="ProcTime" />
+          <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+          <ScalarProperty Name="Channel" ColumnName="Channel" />
+          <ScalarProperty Name="Institution" ColumnName="Institution" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="TxnCode" ColumnName="TxnCode" />
+          <ScalarProperty Name="TxnName" ColumnName="TxnName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RevStatus" ColumnName="RevStatus" />
+          <ScalarProperty Name="RevSeqNbr" ColumnName="RevSeqNbr" />
+          <ScalarProperty Name="AcctNbr" ColumnName="AcctNbr" />
+          <ScalarProperty Name="TxnAmount" ColumnName="TxnAmount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="DocNbr" ColumnName="DocNbr" />
+          <ScalarProperty Name="HostSeqNbr" ColumnName="HostSeqNbr" />
+          <ScalarProperty Name="HostLineStatus" ColumnName="HostLineStatus" />
+          <ScalarProperty Name="HostResult" ColumnName="HostResult" />
+          <ScalarProperty Name="HostMsg" ColumnName="HostMsg" />
+          <ScalarProperty Name="UserMsg" ColumnName="UserMsg" />
+          <ScalarProperty Name="Regularize" ColumnName="Regularize" />
+          <ScalarProperty Name="SysError" ColumnName="SysError" />
+          <ScalarProperty Name="Reversible" ColumnName="Reversible" />
+          <ScalarProperty Name="ReprintAllowed" ColumnName="ReprintAllowed" />
+          <ScalarProperty Name="ReprintPartialAllowed" ColumnName="ReprintPartialAllowed" />
+          <ScalarProperty Name="PrintFormCount" ColumnName="PrintFormCount" />
+          <ScalarProperty Name="Workstation" ColumnName="Workstation" />
+          <ScalarProperty Name="TxnDetail" ColumnName="TxnDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TJ_WS">
+      <EntityTypeMapping TypeName="ETMRuntimeModel.TJ_WS">
+        <MappingFragment StoreEntitySet="TJ_WS">
+          <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Authorizer" ColumnName="Authorizer" />
+          <ScalarProperty Name="ProcDate" ColumnName="ProcDate" />
+          <ScalarProperty Name="ProcTime" ColumnName="ProcTime" />
+          <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+          <ScalarProperty Name="Channel" ColumnName="Channel" />
+          <ScalarProperty Name="Institution" ColumnName="Institution" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="TxnCode" ColumnName="TxnCode" />
+          <ScalarProperty Name="TxnName" ColumnName="TxnName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RevStatus" ColumnName="RevStatus" />
+          <ScalarProperty Name="RevSeqNbr" ColumnName="RevSeqNbr" />
+          <ScalarProperty Name="AcctNbr" ColumnName="AcctNbr" />
+          <ScalarProperty Name="TxnAmount" ColumnName="TxnAmount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="DocNbr" ColumnName="DocNbr" />
+          <ScalarProperty Name="HostSeqNbr" ColumnName="HostSeqNbr" />
+          <ScalarProperty Name="HostLineStatus" ColumnName="HostLineStatus" />
+          <ScalarProperty Name="HostResult" ColumnName="HostResult" />
+          <ScalarProperty Name="HostMsg" ColumnName="HostMsg" />
+          <ScalarProperty Name="UserMsg" ColumnName="UserMsg" />
+          <ScalarProperty Name="Regularize" ColumnName="Regularize" />
+          <ScalarProperty Name="SysError" ColumnName="SysError" />
+          <ScalarProperty Name="Reversible" ColumnName="Reversible" />
+          <ScalarProperty Name="PrintFormCount" ColumnName="PrintFormCount" />
+          <ScalarProperty Name="TxnDetail" ColumnName="TxnDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Total_Branch">
+      <EntityTypeMapping TypeName="ETMRuntimeModel.Total_Branch">
+        <MappingFragment StoreEntitySet="Total_Branch">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Channel" ColumnName="Channel" />
+          <ScalarProperty Name="InstitutionCode" ColumnName="InstitutionCode" />
+          <ScalarProperty Name="EnterpriseUnit" ColumnName="EnterpriseUnit" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="Counter" ColumnName="Counter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WSRequests">
+      <EntityTypeMapping TypeName="ETMRuntimeModel.WSRequest">
+        <MappingFragment StoreEntitySet="WSRequest">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ExternalSeqNbr" ColumnName="ExternalSeqNbr" />
+          <ScalarProperty Name="InternalSeqNbr" ColumnName="InternalSeqNbr" />
+          <ScalarProperty Name="TJSeqNbr" ColumnName="TJSeqNbr" />
+          <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+          <ScalarProperty Name="DtRequest" ColumnName="DtRequest" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HostRequests">
+      <EntityTypeMapping TypeName="ETMRuntimeModel.HostRequest">
+        <MappingFragment StoreEntitySet="HostRequest">
+          <ScalarProperty Name="AppSeqNbr" ColumnName="AppSeqNbr" />
+          <ScalarProperty Name="DtRequest" ColumnName="DtRequest" />
+          <ScalarProperty Name="Request" ColumnName="Request" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TJSeqNbrs">
+      <EntityTypeMapping TypeName="ETMRuntimeModel.TJSeqNbr">
+        <MappingFragment StoreEntitySet="TJSeqNbr">
+          <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

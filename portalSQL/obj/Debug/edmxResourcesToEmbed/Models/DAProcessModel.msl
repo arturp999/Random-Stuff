@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DAProcessModelStoreContainer" CdmEntityContainer="PCEruntimeDBEntities">
+    <EntitySetMapping Name="daprocesses">
+      <EntityTypeMapping TypeName="DAProcessModel.daprocess">
+        <MappingFragment StoreEntitySet="daprocess">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="BizProcCode" ColumnName="BizProcCode" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="BizProcNbr" ColumnName="BizProcNbr" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusDesc" ColumnName="StatusDesc" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+          <ScalarProperty Name="StatusTime" ColumnName="StatusTime" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="UserLock" ColumnName="UserLock" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreationUser" ColumnName="CreationUser" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerNbr" ColumnName="CustomerNbr" />
+          <ScalarProperty Name="ContractNbr" ColumnName="ContractNbr" />
+          <ScalarProperty Name="Transit" ColumnName="Transit" />
+          <ScalarProperty Name="EntryChannel" ColumnName="EntryChannel" />
+          <ScalarProperty Name="CentralStatus" ColumnName="CentralStatus" />
+          <ScalarProperty Name="AssociatedDAProcessSeqNbr" ColumnName="AssociatedDAProcessSeqNbr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

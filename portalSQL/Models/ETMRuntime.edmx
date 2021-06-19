@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ETMRuntimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ETMRuntime.dbo.HostRequest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HostRequest">
+          <Key>
+            <PropertyRef Name="DtRequest" />
+            <PropertyRef Name="Request" />
+          </Key>
+          <Property Name="AppSeqNbr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DtRequest" Type="char" MaxLength="14" Nullable="false" />
+          <Property Name="Request" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TJ_Branch">
+          <Key>
+            <PropertyRef Name="SeqNbr" />
+          </Key>
+          <Property Name="SeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Authorizer" Type="varchar" MaxLength="50" />
+          <Property Name="ProcDate" Type="char" MaxLength="8" />
+          <Property Name="ProcTime" Type="char" MaxLength="6" />
+          <Property Name="WorkDate" Type="char" MaxLength="8" />
+          <Property Name="Channel" Type="varchar" MaxLength="20" />
+          <Property Name="Institution" Type="varchar" MaxLength="20" />
+          <Property Name="Branch" Type="varchar" MaxLength="20" />
+          <Property Name="TxnCode" Type="varchar" MaxLength="50" />
+          <Property Name="TxnName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="RevStatus" Type="varchar" MaxLength="50" />
+          <Property Name="RevSeqNbr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AcctNbr" Type="varchar" MaxLength="22" />
+          <Property Name="TxnAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" />
+          <Property Name="DocNbr" Type="varchar" MaxLength="50" />
+          <Property Name="HostSeqNbr" Type="varchar" MaxLength="50" />
+          <Property Name="HostLineStatus" Type="varchar" MaxLength="1" />
+          <Property Name="HostResult" Type="varchar" MaxLength="10" />
+          <Property Name="HostMsg" Type="varchar" MaxLength="1024" />
+          <Property Name="UserMsg" Type="varchar" MaxLength="1024" />
+          <Property Name="Regularize" Type="bit" />
+          <Property Name="SysError" Type="text" />
+          <Property Name="Reversible" Type="bit" />
+          <Property Name="ReprintAllowed" Type="bit" />
+          <Property Name="ReprintPartialAllowed" Type="bit" />
+          <Property Name="PrintFormCount" Type="int" />
+          <Property Name="Workstation" Type="varchar" MaxLength="50" />
+          <Property Name="TxnDetail" Type="text" />
+        </EntityType>
+        <EntityType Name="TJ_WS">
+          <Key>
+            <PropertyRef Name="SeqNbr" />
+          </Key>
+          <Property Name="SeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Authorizer" Type="varchar" MaxLength="50" />
+          <Property Name="ProcDate" Type="char" MaxLength="8" />
+          <Property Name="ProcTime" Type="char" MaxLength="6" />
+          <Property Name="WorkDate" Type="char" MaxLength="8" />
+          <Property Name="Channel" Type="varchar" MaxLength="20" />
+          <Property Name="Institution" Type="varchar" MaxLength="20" />
+          <Property Name="Branch" Type="varchar" MaxLength="20" />
+          <Property Name="TxnCode" Type="varchar" MaxLength="50" />
+          <Property Name="TxnName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="RevStatus" Type="varchar" MaxLength="50" />
+          <Property Name="RevSeqNbr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="AcctNbr" Type="varchar" MaxLength="22" />
+          <Property Name="TxnAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" />
+          <Property Name="DocNbr" Type="varchar" MaxLength="50" />
+          <Property Name="HostSeqNbr" Type="varchar" MaxLength="50" />
+          <Property Name="HostLineStatus" Type="varchar" MaxLength="1" />
+          <Property Name="HostResult" Type="varchar" MaxLength="10" />
+          <Property Name="HostMsg" Type="varchar" MaxLength="1024" />
+          <Property Name="UserMsg" Type="varchar" MaxLength="1024" />
+          <Property Name="Regularize" Type="bit" />
+          <Property Name="SysError" Type="text" />
+          <Property Name="Reversible" Type="bit" />
+          <Property Name="PrintFormCount" Type="int" />
+          <Property Name="TxnDetail" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ETMRuntime.dbo.TJSeqNbr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TJSeqNbr">
+          <Key>
+            <PropertyRef Name="SeqNbr" />
+          </Key>
+          <Property Name="SeqNbr" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Total_Branch">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="WorkDate" />
+            <PropertyRef Name="User" />
+            <PropertyRef Name="Channel" />
+            <PropertyRef Name="InstitutionCode" />
+            <PropertyRef Name="EnterpriseUnit" />
+            <PropertyRef Name="Currency" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkDate" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="User" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Channel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="InstitutionCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnterpriseUnit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Currency" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="TotalValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Counter" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WSRequest">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ExternalSeqNbr" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ExternalSeqNbr" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="InternalSeqNbr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TJSeqNbr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="InstanceID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DtRequest" Type="char" MaxLength="14" Nullable="false" />
+          <Property Name="Response" Type="text" />
+        </EntityType>
+        <EntityContainer Name="ETMRuntimeModelStoreContainer">
+          <EntitySet Name="TJ_Branch" EntityType="Self.TJ_Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TJ_WS" EntityType="Self.TJ_WS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Total_Branch" EntityType="Self.Total_Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WSRequest" EntityType="Self.WSRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HostRequest" EntityType="Self.HostRequest" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HostRequest].[AppSeqNbr] AS [AppSeqNbr], 
+    [HostRequest].[DtRequest] AS [DtRequest], 
+    [HostRequest].[Request] AS [Request]
+    FROM [dbo].[HostRequest] AS [HostRequest]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TJSeqNbr" EntityType="Self.TJSeqNbr" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TJSeqNbr].[SeqNbr] AS [SeqNbr]
+    FROM [dbo].[TJSeqNbr] AS [TJSeqNbr]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ETMRuntimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TJ_Branch">
+          <Key>
+            <PropertyRef Name="SeqNbr" />
+          </Key>
+          <Property Name="SeqNbr" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Authorizer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProcDate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="ProcTime" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="WorkDate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Channel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Institution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Branch" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TxnCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TxnName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RevStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RevSeqNbr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AcctNbr" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="TxnAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DocNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HostSeqNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HostLineStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="HostResult" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HostMsg" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="UserMsg" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Regularize" Type="Boolean" />
+          <Property Name="SysError" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reversible" Type="Boolean" />
+          <Property Name="ReprintAllowed" Type="Boolean" />
+          <Property Name="ReprintPartialAllowed" Type="Boolean" />
+          <Property Name="PrintFormCount" Type="Int32" />
+          <Property Name="Workstation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TxnDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TJ_WS">
+          <Key>
+            <PropertyRef Name="SeqNbr" />
+          </Key>
+          <Property Name="SeqNbr" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Authorizer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProcDate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="ProcTime" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="WorkDate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Channel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Institution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Branch" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TxnCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TxnName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RevStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RevSeqNbr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AcctNbr" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="TxnAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DocNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HostSeqNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HostLineStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="HostResult" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HostMsg" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="UserMsg" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="Regularize" Type="Boolean" />
+          <Property Name="SysError" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reversible" Type="Boolean" />
+          <Property Name="PrintFormCount" Type="Int32" />
+          <Property Name="TxnDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Total_Branch">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="WorkDate" />
+            <PropertyRef Name="User" />
+            <PropertyRef Name="Channel" />
+            <PropertyRef Name="InstitutionCode" />
+            <PropertyRef Name="EnterpriseUnit" />
+            <PropertyRef Name="Currency" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkDate" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InstitutionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EnterpriseUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Currency" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalValue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Counter" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WSRequest">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ExternalSeqNbr" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExternalSeqNbr" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="InternalSeqNbr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TJSeqNbr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="InstanceID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DtRequest" Type="String" MaxLength="14" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HostRequest">
+          <Key>
+            <PropertyRef Name="DtRequest" />
+            <PropertyRef Name="Request" />
+          </Key>
+          <Property Name="AppSeqNbr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DtRequest" Type="String" MaxLength="14" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Request" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TJSeqNbr">
+          <Key>
+            <PropertyRef Name="SeqNbr" />
+          </Key>
+          <Property Name="SeqNbr" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ETMRuntimeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TJ_Branch" EntityType="Self.TJ_Branch" />
+          <EntitySet Name="TJ_WS" EntityType="Self.TJ_WS" />
+          <EntitySet Name="Total_Branch" EntityType="Self.Total_Branch" />
+          <EntitySet Name="WSRequests" EntityType="Self.WSRequest" />
+          <EntitySet Name="HostRequests" EntityType="Self.HostRequest" />
+          <EntitySet Name="TJSeqNbrs" EntityType="Self.TJSeqNbr" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ETMRuntimeModelStoreContainer" CdmEntityContainer="ETMRuntimeEntities">
+          <EntitySetMapping Name="TJ_Branch">
+            <EntityTypeMapping TypeName="ETMRuntimeModel.TJ_Branch">
+              <MappingFragment StoreEntitySet="TJ_Branch">
+                <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Authorizer" ColumnName="Authorizer" />
+                <ScalarProperty Name="ProcDate" ColumnName="ProcDate" />
+                <ScalarProperty Name="ProcTime" ColumnName="ProcTime" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="TxnCode" ColumnName="TxnCode" />
+                <ScalarProperty Name="TxnName" ColumnName="TxnName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RevStatus" ColumnName="RevStatus" />
+                <ScalarProperty Name="RevSeqNbr" ColumnName="RevSeqNbr" />
+                <ScalarProperty Name="AcctNbr" ColumnName="AcctNbr" />
+                <ScalarProperty Name="TxnAmount" ColumnName="TxnAmount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="DocNbr" ColumnName="DocNbr" />
+                <ScalarProperty Name="HostSeqNbr" ColumnName="HostSeqNbr" />
+                <ScalarProperty Name="HostLineStatus" ColumnName="HostLineStatus" />
+                <ScalarProperty Name="HostResult" ColumnName="HostResult" />
+                <ScalarProperty Name="HostMsg" ColumnName="HostMsg" />
+                <ScalarProperty Name="UserMsg" ColumnName="UserMsg" />
+                <ScalarProperty Name="Regularize" ColumnName="Regularize" />
+                <ScalarProperty Name="SysError" ColumnName="SysError" />
+                <ScalarProperty Name="Reversible" ColumnName="Reversible" />
+                <ScalarProperty Name="ReprintAllowed" ColumnName="ReprintAllowed" />
+                <ScalarProperty Name="ReprintPartialAllowed" ColumnName="ReprintPartialAllowed" />
+                <ScalarProperty Name="PrintFormCount" ColumnName="PrintFormCount" />
+                <ScalarProperty Name="Workstation" ColumnName="Workstation" />
+                <ScalarProperty Name="TxnDetail" ColumnName="TxnDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TJ_WS">
+            <EntityTypeMapping TypeName="ETMRuntimeModel.TJ_WS">
+              <MappingFragment StoreEntitySet="TJ_WS">
+                <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Authorizer" ColumnName="Authorizer" />
+                <ScalarProperty Name="ProcDate" ColumnName="ProcDate" />
+                <ScalarProperty Name="ProcTime" ColumnName="ProcTime" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="TxnCode" ColumnName="TxnCode" />
+                <ScalarProperty Name="TxnName" ColumnName="TxnName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RevStatus" ColumnName="RevStatus" />
+                <ScalarProperty Name="RevSeqNbr" ColumnName="RevSeqNbr" />
+                <ScalarProperty Name="AcctNbr" ColumnName="AcctNbr" />
+                <ScalarProperty Name="TxnAmount" ColumnName="TxnAmount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="DocNbr" ColumnName="DocNbr" />
+                <ScalarProperty Name="HostSeqNbr" ColumnName="HostSeqNbr" />
+                <ScalarProperty Name="HostLineStatus" ColumnName="HostLineStatus" />
+                <ScalarProperty Name="HostResult" ColumnName="HostResult" />
+                <ScalarProperty Name="HostMsg" ColumnName="HostMsg" />
+                <ScalarProperty Name="UserMsg" ColumnName="UserMsg" />
+                <ScalarProperty Name="Regularize" ColumnName="Regularize" />
+                <ScalarProperty Name="SysError" ColumnName="SysError" />
+                <ScalarProperty Name="Reversible" ColumnName="Reversible" />
+                <ScalarProperty Name="PrintFormCount" ColumnName="PrintFormCount" />
+                <ScalarProperty Name="TxnDetail" ColumnName="TxnDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Total_Branch">
+            <EntityTypeMapping TypeName="ETMRuntimeModel.Total_Branch">
+              <MappingFragment StoreEntitySet="Total_Branch">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="InstitutionCode" ColumnName="InstitutionCode" />
+                <ScalarProperty Name="EnterpriseUnit" ColumnName="EnterpriseUnit" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WSRequests">
+            <EntityTypeMapping TypeName="ETMRuntimeModel.WSRequest">
+              <MappingFragment StoreEntitySet="WSRequest">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ExternalSeqNbr" ColumnName="ExternalSeqNbr" />
+                <ScalarProperty Name="InternalSeqNbr" ColumnName="InternalSeqNbr" />
+                <ScalarProperty Name="TJSeqNbr" ColumnName="TJSeqNbr" />
+                <ScalarProperty Name="InstanceID" ColumnName="InstanceID" />
+                <ScalarProperty Name="DtRequest" ColumnName="DtRequest" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HostRequests">
+            <EntityTypeMapping TypeName="ETMRuntimeModel.HostRequest">
+              <MappingFragment StoreEntitySet="HostRequest">
+                <ScalarProperty Name="AppSeqNbr" ColumnName="AppSeqNbr" />
+                <ScalarProperty Name="DtRequest" ColumnName="DtRequest" />
+                <ScalarProperty Name="Request" ColumnName="Request" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TJSeqNbrs">
+            <EntityTypeMapping TypeName="ETMRuntimeModel.TJSeqNbr">
+              <MappingFragment StoreEntitySet="TJSeqNbr">
+                <ScalarProperty Name="SeqNbr" ColumnName="SeqNbr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
