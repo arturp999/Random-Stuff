@@ -10,6 +10,9 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+//LOGIN
+router.post('/login', UserController.login);
+
 //Posts the new user to DB
 router.post('/register', UserController.register);
 //User.create({ name: 'admin', email: 'admin@admin.com', password: 'admin' });

@@ -16,6 +16,12 @@ app.listen(3001, function() {
   db.sequelize.sync(); //its going to create all the tables from the models in the app start
 });
 
+
+////////////////////  MiddleWare //////////////////////////
+var Authentification = require('./Middleware/Authentification');
+app.use(Authentification)
+//////////////////////////////////////////////////////////
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
