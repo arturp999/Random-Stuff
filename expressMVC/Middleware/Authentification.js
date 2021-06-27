@@ -1,20 +1,25 @@
-const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
-// get config vars
+const dotenv = require('dotenv');
+const jwt = require('jsonwebtoken');
+
 dotenv.config();
-
-//global.crypto = require('crypto')
-// var token = crypto.randomBytes(64).toString('hex');
-// console.log(token)
-
-function generateAccessToken(username) {
-  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: "1800s" });
-}
-
-var Authentification = function (req, res, next) {
-  console.log("LOGGED");
-
-  next();
+const Authentification = async (req, res, next) => {
+  const token = req.cookies.token || '';
+  try {
+    if (!token) {
+      
+      //return res.status(401).json('You need to Login')
+      res.redirect("/login");
+    }
+    const decrypt = await jwt.verify(token, process.env.TOKEN_SECRET);
+    req.user = {
+      email: decrypt.email,
+      password: decrypt.password,
+    };
+    next();
+  } catch (err) {
+    res.redirect("/login");
+    //return res.status(500).json(err.toString());
+  }
 };
 
 module.exports = Authentification;

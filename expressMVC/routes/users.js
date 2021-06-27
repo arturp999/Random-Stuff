@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const Authentification = require('../Middleware/Authentification');
 
 
 // Require controller modules
 var UserController = require('../controller/UserController');
 
 /// GET ROUTES ///
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', Authentification, function(req, res, next) {
+  console.log("HEREEEEEEEEEE");
 });
 
 //LOGIN

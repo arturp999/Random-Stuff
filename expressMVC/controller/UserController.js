@@ -1,9 +1,12 @@
 var db = require("../models");
+const generateToken = require("../Middleware/AuthTokenGenerator");
+
 
 exports.register = function (req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
   var name = req.body.name;
+  console.log(req.body)
   User.findOne({
     where: {
       email: email,
@@ -18,23 +21,31 @@ exports.register = function (req, res, next) {
         email: email,
         password: password,
       });
+      generateToken(res, email, password); //generates token after register
+      res.redirect("/");
     }
   });
 };
 
-exports.login = function (req, res, next) {
+exports.login = (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
-  User.findOne({
-    where: {
-      email: email,
-      password: password,
-    },
-  }).then((result) => {
-    if (result) {
-      res.redirect("/");
-    } else {
-      console.log("something wrong");
-    }
-  });
+
+  try {
+    User.findOne({
+      where: {
+        email: email,
+        password: password,
+      },
+    }).then((result) => {
+      if (result) {
+        generateToken(res, email, password); //generates token after login
+        //res.redirect("/");
+      } else {
+        console.log("something wrong");
+      }
+    });
+  } catch (error) {
+    return res.status(500).json(err.toString());
+  }
 };
