@@ -9,17 +9,23 @@ const { flash } = require('express-flash-message');
 
 /// GET ROUTES ///
 router.get('/', Authentification, function(req, res, next) {
-  console.log("HEREEEEEEEEEE");
+  console.log("here")
 });
 
 //LOGIN
+
 router.get('/login', function(req, res, next) {
-  res.render('login.ejs', { message: req.flash('loginMessage') });
+  res.render('login.ejs', { message: req.flash('message') });
 });
 router.post('/login', UserController.login);
 
-//Posts the new user to DB
+//Register
+router.get('/register', function(req, res, next) {
+  res.render('register.ejs', { message: req.flash('message') });
+});
 router.post('/register', UserController.register);
-//User.create({ name: 'admin', email: 'admin@admin.com', password: 'admin' });
+
+
+router.get('/logout', UserController.logout);
 
 module.exports = router;
