@@ -1,19 +1,17 @@
 var db = require("../models");
 const generateToken = require("../Middleware/AuthTokenGenerator");
 
-
 exports.register = function (req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
   var name = req.body.name;
-  console.log(req.body)
+  console.log(req.body);
   User.findOne({
     where: {
       email: email,
     },
   }).then((result) => {
     if (result) {
-      console.log("User already exists");
       res.redirect("/login");
     } else {
       User.create({
@@ -30,7 +28,6 @@ exports.register = function (req, res, next) {
 exports.login = (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
-
   try {
     User.findOne({
       where: {
@@ -40,12 +37,17 @@ exports.login = (req, res) => {
     }).then((result) => {
       if (result) {
         generateToken(res, email, password); //generates token after login
-        //res.redirect("/");
+        res.redirect("/");
       } else {
-        console.log("something wrong");
+        req.flash("message", "Wrong password");
+        res.redirect("/users/login")
       }
     });
   } catch (error) {
+    res.render("message", {
+      message: "something is wrong",
+      error: { status: "", stack: "" },
+    });
     return res.status(500).json(err.toString());
   }
 };

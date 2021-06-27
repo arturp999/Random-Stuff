@@ -5,6 +5,7 @@ const Authentification = require('../Middleware/Authentification');
 
 // Require controller modules
 var UserController = require('../controller/UserController');
+const { flash } = require('express-flash-message');
 
 /// GET ROUTES ///
 router.get('/', Authentification, function(req, res, next) {
@@ -12,6 +13,9 @@ router.get('/', Authentification, function(req, res, next) {
 });
 
 //LOGIN
+router.get('/login', function(req, res, next) {
+  res.render('login.ejs', { message: req.flash('loginMessage') });
+});
 router.post('/login', UserController.login);
 
 //Posts the new user to DB
