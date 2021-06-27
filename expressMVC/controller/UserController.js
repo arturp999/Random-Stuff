@@ -56,7 +56,12 @@ exports.login = (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
 
-  if (email == "" || email == undefined || password == "" || password == undefined) {
+  if (
+    email == "" ||
+    email == undefined ||
+    password == "" ||
+    password == undefined
+  ) {
     req.flash("message", "You need to fill the Email/Password");
     res.redirect("/users/login");
   } else {
@@ -68,7 +73,7 @@ exports.login = (req, res) => {
       if (password == result.password) {
         generateToken(res, email, password); //generates token after login
         req.flash("message", "Successfully logged in");
-        res.redirect("/");
+        res.redirect("/users/profile");
       } else {
         req.flash("message", "Wrong password");
         res.redirect("/users/login");
@@ -81,4 +86,35 @@ exports.logout = function (req, res) {
   res.clearCookie("token");
   req.flash("message", "You have logged out");
   res.redirect("/");
+};
+
+//Profile
+exports.profile = (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
+};
+
+const jwt = require("jsonwebtoken");
+exports.uploadSingle = (req, res, next) => {
+  const token = req.cookies.token || "";
+  const decrypt = jwt.verify(token, process.env.TOKEN_SECRET);
+  req.user = {
+    email: decrypt.email,
+    password: decrypt.password,
+  };
+  //Search for the user ID
+  User.findOne({
+    where: {
+      email: decrypt.email,
+    },
+  }).then((result) => {
+    Images.create({ //creates the record using the user ID
+      img_original_name: req.file.originalname,
+      img_location: req.file.path,
+      img_filename: req.file.filename,
+      user_img_id: result.id
+    });
+  });
+  req.flash("message", "Upload Successful");
+  res.redirect("/users/profile");
 };

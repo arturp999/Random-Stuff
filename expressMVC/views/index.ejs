@@ -26,7 +26,9 @@
             <a class="nav-link" href="/">Home</a>
 
             <% if(isLoggedin){ %>
+              <a class="nav-link" href="/users/profile">Profile</a>
             <a class="nav-link" href="/users/logout">Logout</a>
+
             <% } else{ %>
             <a class="nav-link active" href="/users/login">Login</a>
             <a class="nav-link" href="/users/register">Register</a>

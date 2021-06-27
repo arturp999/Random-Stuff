@@ -5,11 +5,13 @@ var cookieParser = require("cookie-parser");
 var cors = require("cors");
 var logger = require("morgan");
 
+
 //flash messages//
 const flash = require("connect-flash");
 const session = require("express-session");
 
 var app = express();
+
 
 //database stuff
 var db = require("./models");
