@@ -1,5 +1,6 @@
 var db = require("../models");
 const generateToken = require("../Middleware/AuthTokenGenerator");
+const jwt = require("jsonwebtoken");
 
 exports.register = function (req, res, next) {
   var email = req.body.email;
@@ -90,31 +91,55 @@ exports.logout = function (req, res) {
 
 //Profile
 exports.profile = (req, res) => {
-  var email = req.body.email;
-  var password = req.body.password;
-};
-
-const jwt = require("jsonwebtoken");
-exports.uploadSingle = (req, res, next) => {
   const token = req.cookies.token || "";
   const decrypt = jwt.verify(token, process.env.TOKEN_SECRET);
-  req.user = {
-    email: decrypt.email,
-    password: decrypt.password,
-  };
-  //Search for the user ID
   User.findOne({
     where: {
       email: decrypt.email,
     },
   }).then((result) => {
-    Images.create({ //creates the record using the user ID
-      img_original_name: req.file.originalname,
-      img_location: req.file.path,
-      img_filename: req.file.filename,
-      user_img_id: result.id
+    Images.findAll({
+      where: {
+        user_img_id: result.id,
+      },
+    }).then((imagesResult) => {
+      res.render("profile.ejs", {
+        message: req.flash("message"),
+        messageError: req.flash("messageError"),
+        imagesResult: imagesResult,
+      }); //
+
+      // for (let i = 0; i < imagesResult.length; i++) {
+      //   console.log(imagesResult[i].img_location);
+      // }
+
+      
     });
   });
-  req.flash("message", "Upload Successful");
-  res.redirect("/users/profile");
+};
+
+exports.uploadSingle = (req, res, next) => {
+  const token = req.cookies.token || "";
+  const decrypt = jwt.verify(token, process.env.TOKEN_SECRET);
+  if (req.file == undefined) {
+    req.flash("messageError", "You didnt upload anything");
+    res.redirect("/users/profile");
+  } else {
+    //Search for the user ID
+    User.findOne({
+      where: {
+        email: decrypt.email,
+      },
+    }).then((result) => {
+      Images.create({
+        //creates the record using the user ID
+        img_original_name: req.file.originalname,
+        img_location: req.file.path,
+        img_filename: req.file.filename,
+        user_img_id: result.id,
+      });
+    });
+    req.flash("message", "Upload Successful");
+    res.redirect("/users/profile");
+  }
 };

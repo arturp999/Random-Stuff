@@ -1,73 +1,82 @@
 <html lang="en">
-  <head>
-    <title>Your Profile</title>
-    <!--Bootsrap 4 CDN-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
 
-    <!--Fontawesome CDN-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous"
-    />
+<head>
+  <title>Your Profile</title>
+  <!--Bootsrap 4 CDN-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
 
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <% if (message.length> 0) { %>
-  <div id="middleAlert">
-    <div id="exampleModal" class="reveal-modal">
-      <div class="alert alert-success"><%= message[0] %></div>
-    </div>
+  <!--Fontawesome CDN-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+
+  <!--Custom styles-->
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<header class="masthead mb-auto">
+  <div class="inner">
+    <h3 class="masthead-brand"></h3>
+    <nav class="nav nav-masthead justify-content-center">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/users/logout">Logout</a>
+    </nav>
   </div>
-  <% } %>
+</header>
 
-  <header class="masthead mb-auto">
-    <div class="inner">
-      <h3 class="masthead-brand"></h3>
-      <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/users/logout">Logout</a>
-      </nav>
-    </div>
-  </header>
+<body class="text-center">
+  <div id="mainContent" class="mx-auto mt-4">
 
-  <body class="text-center">
-    <div id="mainContent" class="mx-auto mt-4">
-      <h1>Your Uploads:</h1>
-
-      <!--   PHOTO-->
-      <form action="/users/uploadfile" enctype="multipart/form-data" method="POST">
-        <input type="file" name="myImage" accept="image/*" />
-        <input type="submit" value="Upload Photo" />
-      </form>
-
-      <!-- MULTIPLE FILES -->
-      <form
-        action="/uploadmultiple"
-        enctype="multipart/form-data"
-        method="POST"
-      >
-        Select images: <input type="file" name="myFiles" multiple />
-        <input type="submit" value="Upload your files" />
-      </form>
-
-      <div class="card-columns">
-        <div class="card m-2">
-          <img
-            class="card-img"
-            src="https://i.stack.imgur.com/ILTQq.png"
-            alt="Card image"
-          />
+    <% if (message.length> 0) { %>
+      <div id="middleAlert" class="mx-auto mt-4">
+        <div class="reveal-modal">
+          <div class="alert alert-success">
+            <%= message[0] %>
+          </div>
         </div>
+      </div>
+      <% } %>
 
-        <!-- <div class="card">  THIS IS A CARD WITH TEX BELLOW
+        <% if (messageError.length> 0) { %>
+          <div id="middleAlert" class="mx-auto mt-4">
+            <div class="reveal-modal">
+              <div class="alert alert-danger">
+                <%= messageError[0] %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+
+            <h1>Your Uploads:</h1>
+
+            <!--   PHOTO-->
+            <form action="/users/uploadfile" enctype="multipart/form-data" method="POST">
+              <input type="file" name="myImage" accept="image/*" />
+              <input type="submit" value="Upload Photo" />
+            </form>
+
+            <!-- MULTIPLE FILES -->
+            <form action="/uploadmultiple" enctype="multipart/form-data" method="POST">
+              Select images: <input type="file" name="myFiles" multiple />
+              <input type="submit" value="Upload your files" />
+            </form>
+
+
+ 
+              <div class="card-columns">
+                <% for(var i=0; i<imagesResult.length; i++) {%>
+                <div class="card m-2">
+                  <img class="card-img" src='<%= imagesResult[i].img_location %>' alt="Card image" />
+                  <!-- <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="Card image" /> -->
+                </div>
+                <% } %>
+
+                  <!-- <% for(var i=0; i<imagesResult.length; i++) {%>
+          <li>"<%= imagesResult[i].img_location %>"</li>
+       <% } %> -->
+
+                  <!-- <div class="card">  THIS IS A CARD WITH TEX BELLOW
             <img class="card-img-top" src="https://i.stack.imgur.com/ILTQq.png" alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">Card title that wraps to a new line</h5>
@@ -78,9 +87,10 @@
               </p>
             </div>
           </div> -->
-      </div>
-    </div>
-  </body>
+              </div>
+  </div>
+</body>
+
 </html>
 
 <style>
@@ -102,6 +112,6 @@
   }
 
   #middleAlert {
-    position: absolute;
+    width: 300px;
   }
 </style>

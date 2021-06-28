@@ -24,6 +24,9 @@ app.listen(3001, function () {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+
+app.use('/users/uploads/', express.static('./uploads')); //need to be here or doesnt load the images, first is the route, then its the folder
+
 //flash messages//
 app.use(session({
   secret:'Who would know naught of art must learn, act, and then take his ease',

@@ -27,9 +27,7 @@ router.post('/register', UserController.register);
 router.get('/logout', UserController.logout);
 
 //Profile Page
-router.get('/profile', function(req, res, next) {
- res.render('profile.ejs', { message: req.flash('message') });
-});
+router.get('/profile', Authentification,UserController.profile );
 
 //Multer stuff
 const multer = require('../controller/files');
