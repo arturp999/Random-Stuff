@@ -24,7 +24,6 @@ app.listen(3001, function () {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-
 app.use('/users/uploads/', express.static('./uploads')); //need to be here or doesnt load the images, first is the route, then its the folder
 
 //flash messages//
@@ -43,7 +42,7 @@ var usersRouter = require("./routes/users");
 
 //so we can read what we get from the body/Gets user input
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

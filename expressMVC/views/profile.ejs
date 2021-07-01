@@ -5,6 +5,7 @@
   <!--Bootsrap 4 CDN-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
   <!--Fontawesome CDN-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -26,7 +27,6 @@
 
 <body class="text-center">
   <div id="mainContent" class="mx-auto mt-4">
-
     <% if (message.length> 0) { %>
       <div id="middleAlert" class="mx-auto mt-4">
         <div class="reveal-modal">
@@ -36,7 +36,6 @@
         </div>
       </div>
       <% } %>
-
         <% if (messageError.length> 0) { %>
           <div id="middleAlert" class="mx-auto mt-4">
             <div class="reveal-modal">
@@ -46,54 +45,67 @@
             </div>
           </div>
           <% } %>
-
-
             <h1>Your Uploads:</h1>
-
             <!--   PHOTO-->
             <form action="/users/uploadfile" enctype="multipart/form-data" method="POST">
               <input type="file" name="myImage" accept="image/*" />
               <input type="submit" value="Upload Photo" />
-            </form>
-
-            <!-- MULTIPLE FILES -->
-            <form action="/uploadmultiple" enctype="multipart/form-data" method="POST">
+            </form>             
+            <!-- MULTIPLE FILES
+            <form action="/users/uploadmultiple" enctype="multipart/form-data" method="POST">
               Select images: <input type="file" name="myFiles" multiple />
               <input type="submit" value="Upload your files" />
-            </form>
+            </form>  -->
 
+            <button onClick="sendArrayToController()" type="submit" class="btn btn-danger">Delete
+              Selected</button>
 
- 
-              <div class="card-columns">
-                <% for(var i=0; i<imagesResult.length; i++) {%>
+            <div class="card-columns">
+              <% for(var i=0; i<imagesResult.length; i++) {%>
                 <div class="card m-2">
-                  <img class="card-img" src='<%= imagesResult[i].img_location %>' alt="Card image" />
-                  <!-- <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="Card image" /> -->
+                  <img id='<%= imagesResult[i].id %>' onClick="reply_click(this.id)" class="card-img"
+                    src='/users/uploads/<%= imagesResult[i].img_filename %>' alt="Card image" />
                 </div>
                 <% } %>
+                  <script type="text/javascript">
+                    var imagesToDelete = []; //creating an array with the id of images to delete
+                    function reply_click(clicked_id) {
+                      var $img = $("#" + clicked_id).toggleClass('clicked');
+                      if (imagesToDelete.indexOf(clicked_id) === -1) { // verify if the image_ID that was clicked is inside of the array
+                        imagesToDelete.push(clicked_id);// if its not it will push inside the array
+                      } else if (imagesToDelete.includes(clicked_id)) {// determines if the value is inside the array
+                        var indexToRemove = imagesToDelete.indexOf(clicked_id) //compares the value with the elements in the array using the ===
+                        if (indexToRemove > -1) {
+                          imagesToDelete.splice(indexToRemove, 1);
+                        }
+                      }
+                    }
 
-                  <!-- <% for(var i=0; i<imagesResult.length; i++) {%>
-          <li>"<%= imagesResult[i].img_location %>"</li>
-       <% } %> -->
-
-                  <!-- <div class="card">  THIS IS A CARD WITH TEX BELLOW
-            <img class="card-img-top" src="https://i.stack.imgur.com/ILTQq.png" alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">Card title that wraps to a new line</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+                    function sendArrayToController() {
+                      var arrayString = JSON.stringify(imagesToDelete);
+                      $.ajax({
+                        contentType: 'application/json',
+                        type: "POST",
+                        url: '/users/delete',
+                        data: arrayString,
+                        success: function (data) {
+                          console.log('Call was successful');
+                          location.reload();
+                        }
+                      });
+                    }
+                  </script>
             </div>
-          </div> -->
-              </div>
   </div>
 </body>
 
 </html>
 
 <style>
+  img.clicked {
+    border: 5px solid Blue
+  }
+
   #mainContent {
     background-color: rgba(243, 239, 239, 0.795);
     width: 90%;

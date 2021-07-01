@@ -1,6 +1,7 @@
 var db = require("../models");
 const generateToken = require("../Middleware/AuthTokenGenerator");
 const jwt = require("jsonwebtoken");
+const fs = require("fs");
 
 exports.register = function (req, res, next) {
   var email = req.body.email;
@@ -108,12 +109,6 @@ exports.profile = (req, res) => {
         messageError: req.flash("messageError"),
         imagesResult: imagesResult,
       }); //
-
-      // for (let i = 0; i < imagesResult.length; i++) {
-      //   console.log(imagesResult[i].img_location);
-      // }
-
-      
     });
   });
 };
@@ -140,6 +135,30 @@ exports.uploadSingle = (req, res, next) => {
       });
     });
     req.flash("message", "Upload Successful");
-    res.redirect("/users/profile");
+    res.redirect("/");
   }
+};
+
+exports.delete = (req, res) => {
+  var imagesDelete = req.body;
+  for (let i = 0; i < imagesDelete.length; i++) {
+    Images.findOne({
+      where: {
+        id: imagesDelete[i],
+      },
+    }).then((imagesResult) => {
+      fs.unlinkSync(imagesResult.img_location), // deletes from local with location
+        (err) => {
+          if (err) throw err;
+        };
+        Images.destroy({
+          where: {
+            id: imagesDelete[i],
+          },
+        });
+    });
+  }
+  req.flash("message", "You have logged out");
+  res.redirect("/users/profile");
+
 };
